@@ -1,42 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Inter', sans-serif; background: #fff; color: #111; }
+body { font-family: 'Inter', sans-serif; background: #fff; color: #111; padding-bottom: 50px; }
 
 /* Navigasi */
 nav { padding: 40px 5%; display: flex; justify-content: space-between; align-items: center; }
-.logo { font-weight: 700; font-size: 0.9rem; letter-spacing: 2px; }
-.nav-link { color: #111; text-decoration: none; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+.logo { font-weight: 700; font-size: 1.1rem; letter-spacing: 1px; }
+.nav-link { color: #111; text-decoration: none; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; }
 
-/* Header Minimal */
-.header-minimal { padding: 40px 0; text-align: center; }
-.header-minimal h1 { font-size: 1.2rem; font-weight: 300; letter-spacing: 8px; text-transform: uppercase; }
+/* Header Visual Storyteller */
+.main-title { padding: 40px 0; text-align: center; }
+.main-title h1 { font-size: 1.2rem; font-weight: 300; letter-spacing: 6px; text-transform: uppercase; }
 
-/* Filter */
-.filter-buttons { text-align: center; margin-bottom: 60px; }
-.filter-buttons button { background: none; border: none; padding: 0 15px; cursor: pointer; font-size: 0.75rem; color: #aaa; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
+/* Filter Minimalis */
+.filter-buttons { text-align: center; margin-bottom: 50px; }
+.filter-buttons button { background: transparent; border: none; padding: 0 15px; cursor: pointer; font-size: 0.8rem; color: #999; transition: color 0.3s; text-transform: uppercase; }
 .filter-buttons button:hover { color: #111; }
 
 /* Galeri */
 .gallery { column-count: 3; column-gap: 30px; padding: 0 5%; }
 .art-item { margin-bottom: 30px; break-inside: avoid; cursor: pointer; }
-.art-item img { width: 100%; display: block; border-radius: 4px; transition: 0.3s; }
-.art-item:hover img { opacity: 0.6; }
-
-/* Footer Tengah */
-.footer-minimal { 
-    text-align: center; 
-    padding: 80px 5%; 
-    font-size: 0.65rem; 
-    color: #999; 
-    text-transform: uppercase; 
-    letter-spacing: 2px;
-}
+.art-item img { width: 100%; display: block; border-radius: 4px; transition: opacity 0.3s; }
+.art-item:hover img { opacity: 0.7; }
 
 /* Lightbox */
 .lightbox { display: none; position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%; background: #fff; text-align: center; }
-.lightbox-content { max-width: 70%; max-height: 80%; margin: 5% auto; display: block; }
-.close { position: absolute; top: 30px; right: 40px; cursor: pointer; font-size: 2rem; }
+.lightbox-content { max-width: 70%; max-height: 80%; margin: 5% auto; display: block; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+.close { position: absolute; top: 30px; right: 40px; cursor: pointer; font-size: 2rem; color: #111; }
 
 /* Responsive */
 @media (max-width: 900px) { .gallery { column-count: 2; } }
