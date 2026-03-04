@@ -31,6 +31,17 @@ header { text-align: center; padding: 80px 0; }
     transition: transform 0.3s ease;
 }
 
+/* Styling Tombol Filter */
+.filter-buttons { text-align: center; margin: 30px 0; }
+.filter-buttons button {
+    background: none; border: 1px solid #333; padding: 10px 20px;
+    margin: 5px; cursor: pointer; transition: 0.3s;
+}
+.filter-buttons button:hover { background: #333; color: #fff; }
+
+/* Class untuk menyembunyikan item */
+.hidden { display: none; }
+
 /* KEAJAIBAN RESPONSIVE (Agar dynamic di semua HP/Tablet) */
 @media (max-width: 900px) { .gallery { column-count: 2; } } /* Tablet: 2 kolom */
 @media (max-width: 600px) { .gallery { column-count: 1; } } /* HP: 1 kolom */
