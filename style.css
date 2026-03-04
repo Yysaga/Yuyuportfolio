@@ -28,6 +28,37 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
 .lightbox-content { max-width: 70%; max-height: 80%; margin: 5% auto; display: block; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
 .close { position: absolute; top: 30px; right: 40px; cursor: pointer; font-size: 2rem; color: #111; }
 
+/* Footer Minimalis */
+.footer { 
+    padding: 80px 5% 40px 5%; 
+    text-align: center; 
+    border-top: 1px solid #f4f4f4; /* Garis tipis halus */
+    margin-top: 80px; 
+}
+.bio { 
+    font-size: 0.9rem; 
+    color: #666; 
+    max-width: 500px; 
+    margin: 0 auto 30px auto; 
+}
+.social-links { margin-bottom: 30px; }
+.social-links a { 
+    color: #111; 
+    text-decoration: none; 
+    font-size: 0.8rem; 
+    font-weight: 600; 
+    text-transform: uppercase; 
+    letter-spacing: 1px;
+    margin: 0 10px;
+}
+.social-links span { color: #ccc; }
+.copyright { 
+    font-size: 0.75rem; 
+    color: #999; 
+    text-transform: uppercase; 
+    letter-spacing: 2px;
+}
+
 /* Responsive */
 @media (max-width: 900px) { .gallery { column-count: 2; } }
 @media (max-width: 600px) { .gallery { column-count: 1; padding: 0 20px; } }
