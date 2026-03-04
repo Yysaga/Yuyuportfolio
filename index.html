@@ -25,13 +25,21 @@
     </div>
 
     <main class="gallery">
-        <div class="art-item kidsbook"><img src="images/buku1.jpg" alt="Buku Anak 1"></div>
-        <div class="art-item kidsbook"><img src="images/buku2.jpg" alt="Buku Anak 2"></div>
-        <div class="art-item illustration"><img src="images/ilustrasi1.jpg" alt="Ilustrasi 1"></div>
-        <div class="art-item illustration"><img src="images/ilustrasi2.jpg" alt="Ilustrasi 2"></div>
-        <div class="art-item comics"><img src="images/komik1.jpg" alt="Komik 1"></div>
-        <div class="art-item comics"><img src="images/komik2.jpg" alt="Komik 2"></div>
+        <div class="art-item kidsbook"><img src="images/buku1.jpg" alt="Buku Anak"></div>
+        <div class="art-item kidsbook"><img src="images/buku2.jpg" alt="Buku Anak"></div>
+        <div class="art-item illustration"><img src="images/ilustrasi1.jpg" alt="Ilustrasi"></div>
+        <div class="art-item illustration"><img src="images/ilustrasi2.jpg" alt="Ilustrasi"></div>
+        <div class="art-item comics"><img src="images/komik1.jpg" alt="Komik"></div>
+        <div class="art-item comics"><img src="images/komik2.jpg" alt="Komik"></div>
     </main>
+
+    <footer class="footer">
+        <p class="bio">Visual storyteller. Available for freelance projects.</p>
+        <div class="social-links">
+            <a href="#">Instagram</a> / <a href="#">Behance</a> / <a href="mailto:email@kamu.com">Email</a>
+        </div>
+        <p class="copyright">&copy; 2026. All rights reserved.</p>
+    </footer>
 
     <div id="lightbox" class="lightbox">
         <span class="close">&times;</span>
@@ -63,18 +71,5 @@
         closeBtn.addEventListener('click', () => { lightbox.style.display = 'none'; });
         lightbox.addEventListener('click', (e) => { if (e.target !== lightboxImg) { lightbox.style.display = 'none'; } });
     </script>
-    <footer class="footer">
-        <div class="footer-content">
-            <p class="bio">Visual storyteller based in Indonesia. Available for freelance projects.</p>
-            <div class="social-links">
-                <a href="#">Instagram</a>
-                <span>/</span>
-                <a href="#">Behance</a>
-                <span>/</span>
-                <a href="mailto:email@kamu.com">Email</a>
-            </div>
-            <p class="copyright">&copy; 2026 [Nama Kamu]. All rights reserved.</p>
-        </div>
-    </footer>
 </body>
 </html>
