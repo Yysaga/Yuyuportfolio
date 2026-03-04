@@ -1,123 +1,35 @@
-/* 1. IMPORT FONT (Biar terlihat modern) */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
 
-/* 2. GLOBAL RESET */
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { 
-    font-family: 'Inter', sans-serif; 
-    background-color: #ffffff; 
-    color: #1a1a1a; 
-    line-height: 1.6;
-    padding-bottom: 50px;
-}
+body { font-family: 'Inter', sans-serif; background: #fff; color: #111; padding-bottom: 50px; }
 
-/* 3. NAVIGASI */
-nav { 
-    padding: 30px 5%; 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center;
-}
-nav .logo { font-weight: 600; font-size: 1.2rem; letter-spacing: 2px; }
-nav ul { list-style: none; }
-nav a { text-decoration: none; color: #1a1a1a; font-size: 0.9rem; }
+/* NAV */
+nav { padding: 40px 5%; display: flex; justify-content: space-between; align-items: center; }
+.logo { font-weight: 700; font-size: 1.1rem; letter-spacing: 1px; }
+.nav-link { color: #111; text-decoration: none; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; }
 
-/* 4. HEADER */
-header { 
-    text-align: center; 
-    padding: 60px 20px; 
-}
-header h1 { font-size: 2.5rem; font-weight: 600; margin-bottom: 10px; }
-header p { color: #666; font-size: 1.1rem; }
-
-/* 5. FILTER BUTTONS (Gaya Pill Modern) */
-.filter-buttons { 
-    text-align: center; 
-    margin-bottom: 50px; 
-}
+/* FILTER MODERN (Tanpa Border) */
+.filter-buttons { text-align: center; margin-bottom: 60px; }
 .filter-buttons button {
-    background: #f4f4f4; 
-    border: none; 
-    padding: 10px 25px; 
-    margin: 5px; 
-    cursor: pointer;
-    border-radius: 50px; /* Bentuk pil */
-    font-size: 0.85rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-.filter-buttons button:hover { 
-    background: #1a1a1a; 
-    color: #fff; 
-}
-
-/* 6. GALERI MASONRY (Rapi & Estetik) */
-.gallery {
-    column-count: 3;
-    column-gap: 20px;
-    padding: 0 5%;
-}
-.art-item {
-    margin-bottom: 20px;
-    break-inside: avoid;
-    cursor: pointer;
-    overflow: hidden;
-    border-radius: 8px; /* Sudut halus */
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-.art-item img {
-    width: 100%;
-    display: block;
-    transition: transform 0.6s ease;
-}
-.art-item:hover { 
-    transform: translateY(-5px); 
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-.art-item:hover img { transform: scale(1.05); }
-
-/* 7. LIGHTBOX (Overlay) */
-.lightbox {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(255, 255, 255, 0.95); /* Putih transparan agar clean */
-    text-align: center;
-}
-.lightbox-content {
-    max-width: 80%;
-    max-height: 80%;
-    margin-top: 5%;
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
-}
-.close {
-    position: absolute;
-    top: 30px; right: 40px;
-    color: #1a1a1a; font-size: 30px;
-    font-weight: 300; cursor: pointer;
-}
-
-/* Styling khusus link navigasi */
-.nav-link {
-    color: #000000 !important; /* Memaksa warna hitam */
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
+    background: transparent; border: none;
+    padding: 0 15px; margin: 0 5px; cursor: pointer;
+    font-size: 0.8rem; color: #999;
+    transition: color 0.3s ease;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: opacity 0.3s ease;
 }
+.filter-buttons button:hover { color: #111; }
 
-.nav-link:hover {
-    opacity: 0.5; /* Memberi efek redup saat disentuh kursor */
-}
+/* GALLERY */
+.gallery { column-count: 3; column-gap: 30px; padding: 0 5%; }
+.art-item { margin-bottom: 30px; break-inside: avoid; cursor: pointer; }
+.art-item img { width: 100%; display: block; border-radius: 4px; transition: opacity 0.3s; }
+.art-item:hover img { opacity: 0.7; }
 
-/* 8. RESPONSIVE (HP & Tablet) */
+/* LIGHTBOX */
+.lightbox { display: none; position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%; background: #fff; }
+.lightbox-content { max-width: 70%; max-height: 80%; margin: 5% auto; display: block; }
+.close { position: absolute; top: 30px; right: 40px; cursor: pointer; font-size: 2rem; }
+
+/* RESPONSIVE */
 @media (max-width: 900px) { .gallery { column-count: 2; } }
-@media (max-width: 600px) { 
-    .gallery { column-count: 1; padding: 0 20px; }
-    header h1 { font-size: 2rem; }
-}
+@media (max-width: 600px) { .gallery { column-count: 1; padding: 0 20px; } }
