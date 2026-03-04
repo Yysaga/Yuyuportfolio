@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Ilustrasi</title>
+    <title>Portofolio Saya</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,32 +15,38 @@
             <li><a href="#">About</a></li>
         </ul>
     </nav>
+
     <header>
         <h1>Visual Storyteller</h1>
         <p>Creating immersive worlds through digital strokes.</p>
     </header>
 
     <div class="filter-buttons">
-    <button onclick="filterSelection('all')">All</button>
-    <button onclick="filterSelection('illustration')">Illustration</button>
-    <button onclick="filterSelection('comics')">Comics</button>
-    <button onclick="filterSelection('kidsbook')">Children's Books</button>
-</div>
-
-<main class="gallery">
-    <div class="art-item illustration"><img src="gambar1.jpg" alt="Art"></div>
-    <div class="art-item comics"><img src="gambar2.jpg" alt="Art"></div>
-    <div class="art-item kidsbook"><img src="gambar3.jpg" alt="Art"></div>
-</main>
-
+        <button onclick="filterSelection('all')">All</button>
+        <button onclick="filterSelection('illustration')">Illustration</button>
+        <button onclick="filterSelection('comics')">Comics</button>
+        <button onclick="filterSelection('kidsbook')">Children's Books</button>
+    </div>
 
     <main class="gallery">
-        <div class="art-item"><img src="https://via.placeholder.com/300x400" alt="Art 1"></div>
-        <div class="art-item"><img src="https://via.placeholder.com/300x300" alt="Art 2"></div>
-        <div class="art-item"><img src="https://via.placeholder.com/300x500" alt="Art 3"></div>
-        <div class="art-item"><img src="https://via.placeholder.com/300x250" alt="Art 4"></div>
-        <div class="art-item"><img src="https://via.placeholder.com/300x450" alt="Art 5"></div>
+        <div class="art-item illustration"><img src="images/gambar1.jpg" alt="Art"></div>
+        <div class="art-item comics"><img src="images/gambar2.jpg" alt="Art"></div>
+        <div class="art-item kidsbook"><img src="images/gambar3.jpg" alt="Art"></div>
     </main>
+
+    <script>
+        function filterSelection(c) {
+            var x, i;
+            x = document.getElementsByClassName("art-item");
+            if (c == "all") c = "";
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+                if (x[i].className.indexOf(c) > -1) {
+                    x[i].style.display = "block";
+                }
+            }
+        }
+    </script>
 
 </body>
 </html>
