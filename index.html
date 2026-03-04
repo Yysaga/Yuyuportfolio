@@ -51,18 +51,44 @@
     </main>
 
     <script>
-        function filterSelection(c) {
-            var x, i;
-            x = document.getElementsByClassName("art-item");
-            if (c == "all") c = "";
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-                if (x[i].className.indexOf(c) > -1) {
-                    x[i].style.display = "block";
-                }
+    // FUNGSI FILTER
+    function filterSelection(c) {
+        var x = document.getElementsByClassName("art-item");
+        if (c == "all") c = "";
+        for (var i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+            if (x[i].className.indexOf(c) > -1) {
+                x[i].style.display = "block";
             }
         }
-    </script>
+    }
+
+    // FUNGSI LIGHTBOX
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('full-image');
+    const images = document.querySelectorAll('.art-item img');
+    const closeBtn = document.querySelector('.close');
+
+    // Saat gambar diklik
+    images.forEach(img => {
+        img.addEventListener('click', () => {
+            lightbox.style.display = 'block';
+            lightboxImg.src = img.src;
+        });
+    });
+
+    // Saat tombol X diklik
+    closeBtn.addEventListener('click', () => {
+        lightbox.style.display = 'none';
+    });
+
+    // Saat background hitam diklik
+    lightbox.addEventListener('click', (e) => {
+        if (e.target !== lightboxImg) {
+            lightbox.style.display = 'none';
+        }
+    });
+</script>
 
     <div id="lightbox" class="lightbox">
     <span class="close">&times;</span>
