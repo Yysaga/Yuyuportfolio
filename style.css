@@ -23,8 +23,15 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
 .art-item img { width: 100%; display: block; border-radius: 4px; transition: 0.3s; }
 .art-item:hover img { opacity: 0.6; }
 
-/* Footer Minimalis (Hanya Teks Kecil) */
-.footer-minimal { padding: 60px 5%; text-align: center; font-size: 0.65rem; color: #999; text-transform: uppercase; letter-spacing: 2px; }
+/* Footer Tengah */
+.footer-minimal { 
+    text-align: center; 
+    padding: 80px 5%; 
+    font-size: 0.65rem; 
+    color: #999; 
+    text-transform: uppercase; 
+    letter-spacing: 2px;
+}
 
 /* Lightbox */
 .lightbox { display: none; position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%; background: #fff; text-align: center; }
