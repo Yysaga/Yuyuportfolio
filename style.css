@@ -1,71 +1,108 @@
-/* Reset & Tampilan Dasar */
+/* 1. IMPORT FONT (Biar terlihat modern) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+/* 2. GLOBAL RESET */
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Helvetica', sans-serif; background-color: #fafafa; color: #333; padding: 0 5%; }
-
-/* Navigasi */
-nav { display: flex; justify-content: space-between; padding: 40px 0; }
-nav .logo { font-weight: bold; letter-spacing: 2px; }
-nav ul { display: flex; list-style: none; }
-nav ul li { margin-left: 20px; }
-
-/* Header */
-header { text-align: center; padding: 80px 0; }
-
-/* Galeri (Museum Style) */
-.gallery {
-    column-count: 3; /* 3 kolom di laptop */
-    column-gap: 20px;
+body { 
+    font-family: 'Inter', sans-serif; 
+    background-color: #ffffff; 
+    color: #1a1a1a; 
+    line-height: 1.6;
+    padding-bottom: 50px;
 }
 
+/* 3. NAVIGASI */
+nav { 
+    padding: 30px 5%; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+}
+nav .logo { font-weight: 600; font-size: 1.2rem; letter-spacing: 2px; }
+nav ul { list-style: none; }
+nav a { text-decoration: none; color: #1a1a1a; font-size: 0.9rem; }
+
+/* 4. HEADER */
+header { 
+    text-align: center; 
+    padding: 60px 20px; 
+}
+header h1 { font-size: 2.5rem; font-weight: 600; margin-bottom: 10px; }
+header p { color: #666; font-size: 1.1rem; }
+
+/* 5. FILTER BUTTONS (Gaya Pill Modern) */
+.filter-buttons { 
+    text-align: center; 
+    margin-bottom: 50px; 
+}
+.filter-buttons button {
+    background: #f4f4f4; 
+    border: none; 
+    padding: 10px 25px; 
+    margin: 5px; 
+    cursor: pointer;
+    border-radius: 50px; /* Bentuk pil */
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.filter-buttons button:hover { 
+    background: #1a1a1a; 
+    color: #fff; 
+}
+
+/* 6. GALERI MASONRY (Rapi & Estetik) */
+.gallery {
+    column-count: 3;
+    column-gap: 20px;
+    padding: 0 5%;
+}
 .art-item {
     margin-bottom: 20px;
     break-inside: avoid;
-    background: #fff;
-    padding: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 8px; /* Sudut halus */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
-
 .art-item img {
     width: 100%;
     display: block;
-    transition: transform 0.3s ease;
+    transition: transform 0.6s ease;
 }
-
-/* Styling Tombol Filter */
-.filter-buttons { text-align: center; margin: 30px 0; }
-.filter-buttons button {
-    background: none; border: 1px solid #333; padding: 10px 20px;
-    margin: 5px; cursor: pointer; transition: 0.3s;
+.art-item:hover { 
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
-.filter-buttons button:hover { background: #333; color: #fff; }
+.art-item:hover img { transform: scale(1.05); }
 
-/* Class untuk menyembunyikan item */
-.hidden { display: none; }
-
-/* Styling Lightbox */
+/* 7. LIGHTBOX (Overlay) */
 .lightbox {
-    display: none; /* Sembunyi secara default */
+    display: none;
     position: fixed;
     z-index: 1000;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.9); /* Latar belakang hitam transparan */
+    background-color: rgba(255, 255, 255, 0.95); /* Putih transparan agar clean */
     text-align: center;
 }
-
 .lightbox-content {
-    max-width: 90%;
+    max-width: 80%;
     max-height: 80%;
     margin-top: 5%;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
 }
-
 .close {
     position: absolute;
-    top: 20px; right: 30px;
-    color: #fff; font-size: 40px;
-    font-weight: bold; cursor: pointer;
+    top: 30px; right: 40px;
+    color: #1a1a1a; font-size: 30px;
+    font-weight: 300; cursor: pointer;
 }
 
-/* KEAJAIBAN RESPONSIVE (Agar dynamic di semua HP/Tablet) */
-@media (max-width: 900px) { .gallery { column-count: 2; } } /* Tablet: 2 kolom */
-@media (max-width: 600px) { .gallery { column-count: 1; } } /* HP: 1 kolom */
+/* 8. RESPONSIVE (HP & Tablet) */
+@media (max-width: 900px) { .gallery { column-count: 2; } }
+@media (max-width: 600px) { 
+    .gallery { column-count: 1; padding: 0 20px; }
+    header h1 { font-size: 2rem; }
+}
