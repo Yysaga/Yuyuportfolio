@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Visual Storyteller</title>
+    <title>Portfolio | Illustrator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <nav>
-        <div class="logo">NAMA BRAND</div>
+        <div class="logo">MY PORTFOLIO</div>
         <ul>
-            <li><a href="#">Gallery</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="index.html">Home</a></li>
         </ul>
     </nav>
 
@@ -22,7 +21,7 @@
     </header>
 
     <div class="filter-buttons">
-        <button onclick="filterSelection('all')">Show All</button>
+        <button onclick="filterSelection('all')">All</button>
         <button onclick="filterSelection('illustration')">Illustration</button>
         <button onclick="filterSelection('comics')">Comics</button>
         <button onclick="filterSelection('kidsbook')">Children's Books</button>
@@ -30,22 +29,22 @@
 
     <main class="gallery">
         <div class="art-item illustration">
-            <img src="images/gambar1.jpg" alt="Ilustrasi">
+            <img src="images/gambar1.jpg" alt="Ilustrasi 1">
+        </div>
+        <div class="art-item illustration">
+            <img src="images/gambar2.jpg" alt="Ilustrasi 2">
         </div>
         <div class="art-item comics">
-            <img src="images/gambar2.jpg" alt="Komik">
+            <img src="images/gambar3.jpg" alt="Komik 1">
+        </div>
+        <div class="art-item comics">
+            <img src="images/gambar4.jpg" alt="Komik 2">
         </div>
         <div class="art-item kidsbook">
-            <img src="images/gambar3.jpg" alt="Buku Anak">
+            <img src="images/gambar5.jpg" alt="Buku Anak 1">
         </div>
         <div class="art-item kidsbook">
-            <img src="images/gambar3.jpg" alt="Buku Anak">
-        </div>
-        <div class="art-item kidsbook">
-            <img src="images/gambar3.jpg" alt="Buku Anak">
-        </div>
-        <div class="art-item kidsbook">
-            <img src="images/gambar3.jpg" alt="Buku Anak">
+            <img src="images/gambar6.jpg" alt="Buku Anak 2">
         </div>
     </main>
 
@@ -55,9 +54,9 @@
             x = document.getElementsByClassName("art-item");
             if (c == "all") c = "";
             for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none"; // Sembunyikan semua
+                x[i].style.display = "none";
                 if (x[i].className.indexOf(c) > -1) {
-                    x[i].style.display = "block"; // Tampilkan yang cocok
+                    x[i].style.display = "block";
                 }
             }
         }
