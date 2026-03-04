@@ -100,6 +100,21 @@ header p { color: #666; font-size: 1.1rem; }
     font-weight: 300; cursor: pointer;
 }
 
+/* Styling khusus link navigasi */
+.nav-link {
+    color: #000000 !important; /* Memaksa warna hitam */
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: opacity 0.3s ease;
+}
+
+.nav-link:hover {
+    opacity: 0.5; /* Memberi efek redup saat disentuh kursor */
+}
+
 /* 8. RESPONSIVE (HP & Tablet) */
 @media (max-width: 900px) { .gallery { column-count: 2; } }
 @media (max-width: 600px) { 
