@@ -13,7 +13,7 @@
         <a href="mailto:email@kamu.com" class="nav-link">Contact</a>
     </nav>
 
-    <header class="main-title">
+    <header class="header-minimal">
         <h1>Visual Storyteller</h1>
     </header>
 
@@ -25,20 +25,16 @@
     </div>
 
     <main class="gallery">
-        <div class="art-item kidsbook"><img src="images/buku1.jpg" alt="Buku Anak"></div>
-        <div class="art-item kidsbook"><img src="images/buku2.jpg" alt="Buku Anak"></div>
-        <div class="art-item illustration"><img src="images/ilustrasi1.jpg" alt="Ilustrasi"></div>
-        <div class="art-item illustration"><img src="images/ilustrasi2.jpg" alt="Ilustrasi"></div>
-        <div class="art-item comics"><img src="images/komik1.jpg" alt="Komik"></div>
-        <div class="art-item comics"><img src="images/komik2.jpg" alt="Komik"></div>
+        <div class="art-item kidsbook"><img src="images/buku1.jpg" alt="Art"></div>
+        <div class="art-item kidsbook"><img src="images/buku2.jpg" alt="Art"></div>
+        <div class="art-item illustration"><img src="images/ilustrasi1.jpg" alt="Art"></div>
+        <div class="art-item illustration"><img src="images/ilustrasi2.jpg" alt="Art"></div>
+        <div class="art-item comics"><img src="images/komik1.jpg" alt="Art"></div>
+        <div class="art-item comics"><img src="images/komik2.jpg" alt="Art"></div>
     </main>
 
-    <footer class="footer">
-        <p class="bio">Visual storyteller. Available for freelance projects.</p>
-        <div class="social-links">
-            <a href="#">Instagram</a> / <a href="#">Behance</a> / <a href="mailto:email@kamu.com">Email</a>
-        </div>
-        <p class="copyright">&copy; 2026. All rights reserved.</p>
+    <footer class="footer-minimal">
+        <p>&copy; 2026. All rights reserved.</p>
     </footer>
 
     <div id="lightbox" class="lightbox">
@@ -55,19 +51,11 @@
                 if (x[i].className.indexOf(c) > -1) { x[i].style.display = "block"; }
             }
         }
-
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('full-image');
         const images = document.querySelectorAll('.art-item img');
         const closeBtn = document.querySelector('.close');
-
-        images.forEach(img => {
-            img.addEventListener('click', () => {
-                lightbox.style.display = 'block';
-                lightboxImg.src = img.src;
-            });
-        });
-
+        images.forEach(img => { img.addEventListener('click', () => { lightbox.style.display = 'block'; lightboxImg.src = img.src; }); });
         closeBtn.addEventListener('click', () => { lightbox.style.display = 'none'; });
         lightbox.addEventListener('click', (e) => { if (e.target !== lightboxImg) { lightbox.style.display = 'none'; } });
     </script>
