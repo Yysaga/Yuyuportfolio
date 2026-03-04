@@ -23,10 +23,8 @@
     <main class="gallery">
         <div class="art-item kidsbook"><img src="images/buku1.jpg" alt="Buku Anak 1"></div>
         <div class="art-item kidsbook"><img src="images/buku2.jpg" alt="Buku Anak 2"></div>
-        
         <div class="art-item illustration"><img src="images/ilustrasi1.jpg" alt="Ilustrasi 1"></div>
         <div class="art-item illustration"><img src="images/ilustrasi2.jpg" alt="Ilustrasi 2"></div>
-        
         <div class="art-item comics"><img src="images/komik1.jpg" alt="Komik 1"></div>
         <div class="art-item comics"><img src="images/komik2.jpg" alt="Komik 2"></div>
     </main>
@@ -37,19 +35,15 @@
     </div>
 
     <script>
-        // Fungsi Filter
         function filterSelection(c) {
             var x = document.getElementsByClassName("art-item");
             if (c == "all") c = "";
             for (var i = 0; i < x.length; i++) {
                 x[i].style.display = "none";
-                if (x[i].className.indexOf(c) > -1) {
-                    x[i].style.display = "block";
-                }
+                if (x[i].className.indexOf(c) > -1) { x[i].style.display = "block"; }
             }
         }
 
-        // Fungsi Lightbox
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('full-image');
         const images = document.querySelectorAll('.art-item img');
@@ -62,16 +56,8 @@
             });
         });
 
-        closeBtn.addEventListener('click', () => {
-            lightbox.style.display = 'none';
-        });
-
-        lightbox.addEventListener('click', (e) => {
-            if (e.target !== lightboxImg) {
-                lightbox.style.display = 'none';
-            }
-        });
+        closeBtn.addEventListener('click', () => { lightbox.style.display = 'none'; });
+        lightbox.addEventListener('click', (e) => { if (e.target !== lightboxImg) { lightbox.style.display = 'none'; } });
     </script>
-
 </body>
 </html>
