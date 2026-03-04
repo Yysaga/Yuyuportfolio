@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Saya</title>
+    <title>Portfolio | Visual Storyteller</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,30 +22,37 @@
     </header>
 
     <div class="filter-buttons">
-        <button onclick="filterSelection('all')">All</button>
+        <button onclick="filterSelection('all')">Show All</button>
         <button onclick="filterSelection('illustration')">Illustration</button>
         <button onclick="filterSelection('comics')">Comics</button>
         <button onclick="filterSelection('kidsbook')">Children's Books</button>
     </div>
 
     <main class="gallery">
-        <div class="art-item illustration"><img src="images/gambar1.jpg" alt="Art"></div>
-        <div class="art-item comics"><img src="images/gambar2.jpg" alt="Art"></div>
-        <div class="art-item kidsbook"><img src="images/gambar3.jpg" alt="Art"></div>
+        <div class="art-item illustration">
+            <img src="images/gambar1.jpg" alt="Ilustrasi">
+        </div>
+        <div class="art-item comics">
+            <img src="images/gambar2.jpg" alt="Komik">
+        </div>
+        <div class="art-item kidsbook">
+            <img src="images/gambar3.jpg" alt="Buku Anak">
+        </div>
     </main>
 
     <script>
-function filterSelection(c) {
-  var x, i;
-  x = document.getElementsByClassName("art-item");
-  if (c == "all") c = "";
-  for (i = 0; i < x.length; i++) {
-    x[i].classList.add("hidden"); // Sembunyikan semua
-    if (x[i].className.indexOf(c) > -1) {
-      x[i].classList.remove("hidden"); // Tampilkan yang sesuai
-    }
-  }
-}
-</script>
+        function filterSelection(c) {
+            var x, i;
+            x = document.getElementsByClassName("art-item");
+            if (c == "all") c = "";
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none"; // Sembunyikan semua
+                if (x[i].className.indexOf(c) > -1) {
+                    x[i].style.display = "block"; // Tampilkan yang cocok
+                }
+            }
+        }
+    </script>
+
 </body>
 </html>
