@@ -47,13 +47,6 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
     width: 100%;
 }
 
-.about-title {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 15px;
-    font-weight: 600;
-}
 
 .about-desc {
     font-size: 0.85rem;
@@ -86,3 +79,23 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
 /* Responsive */
 @media (max-width: 900px) { .gallery { column-count: 2; } }
 @media (max-width: 600px) { .gallery { column-count: 1; padding: 0 20px; } }
+/* Khusus untuk iPad/Tablet (768px sampai 1024px) */
+@media (max-width: 1024px) {
+    /* Mengatur galeri agar tetap proporsional */
+    .gallery { 
+        column-count: 2; 
+        padding: 0 40px; 
+    }
+
+    /* Memastikan footer tidak melebar/terpotong */
+    .footer-container {
+        padding: 0 20px;
+        width: 90%;
+    }
+}
+
+/* Memperbaiki jarak agar tidak terlalu rapat di iPad */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .header-minimal { padding: 60px 0; }
+    .footer-final { margin-top: 60px; padding: 60px 20px; }
+}
