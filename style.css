@@ -130,8 +130,3 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
 }
 .email-btn:hover { background: #111; color: #fff; }
 
-/* Responsive iPad & Mobile */
-@media (max-width: 900px) {
-    .about-container { flex-direction: column; text-align: center; gap: 40px; padding: 50px 5%; }
-    .about-content { max-width: 100%; }
-}
