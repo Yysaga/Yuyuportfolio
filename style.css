@@ -126,3 +126,23 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
 }
 .email-btn:hover { background: #111; color: #fff; }
 
+/* 1. Desktop: 3 Kolom */
+.gallery { 
+    column-count: 3; 
+    column-gap: 30px; 
+    padding: 0 5%; 
+}
+
+/* 2. iPad/Tablet: 2 Kolom */
+@media (max-width: 900px) { 
+    .gallery { column-count: 2; } 
+}
+
+/* 3. HP: 1 Kolom (PENTING: Harus di bawah agar tidak tertimpa) */
+@media (max-width: 600px) { 
+    .gallery { 
+        column-count: 1 !important; /* Paksa 1 kolom */
+        padding: 0 20px !important; 
+    } 
+}
+
