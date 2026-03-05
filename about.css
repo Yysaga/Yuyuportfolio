@@ -95,16 +95,16 @@
 }
 
 .testimonial-link {
-    color: #111; /* Hitam pekat, bukan biru */
-    text-decoration: none; /* Hilangkan garis bawah default */
-    border-bottom: 1px solid #111; /* Garis bawah tipis dan elegan */
+    color: #111 !important;         /* Memaksa warna jadi hitam */
+    text-decoration: none !important; /* Memaksa hilangkan garis bawah default */
+    border-bottom: 1px solid #111;  /* Garis bawah custom */
     padding-bottom: 1px;
     font-weight: 500;
     transition: opacity 0.3s ease;
 }
 
 .testimonial-link:hover {
-    opacity: 0.5; /* Efek pudar saat mouse di atasnya, sangat 'high-end' */
+    opacity: 0.5 !important;
     cursor: pointer;
 }
 
