@@ -28,23 +28,21 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
 .lightbox-content { max-width: 70%; max-height: 80%; margin: 5% auto; display: block; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
 .close { position: absolute; top: 30px; right: 40px; cursor: pointer; font-size: 2rem; color: #111; }
 
-/* Footer Minimalis */
-/* Footer Minimalis - Dibuat Rapi di Tengah */
+/* Footer Rata Tengah - Versi Paksa */
 .footer { 
-    display: flex;
-    flex-direction: column; /* Biar elemen tersusun ke bawah */
-    align-items: center;    /* Biar semua elemen lurus di tengah */
-    text-align: center; 
+    width: 100%;           /* Memastikan footer selebar layar */
+    text-align: center;    /* Memaksa teks di tengah */
     padding: 80px 20px; 
     border-top: 1px solid #f4f4f4; 
     margin-top: 80px; 
+    display: block;        /* Memastikan tidak ada conflict flex */
 }
 
 .footer-about { 
     font-size: 0.8rem; 
     color: #666; 
     max-width: 400px; 
-    margin-bottom: 25px; 
+    margin: 0 auto 25px auto; /* 0 auto ini kunci agar elemen block ke tengah */
     line-height: 1.5;
 }
 
@@ -59,7 +57,8 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
     font-weight: 600; 
     text-transform: uppercase; 
     letter-spacing: 1px;
-    margin: 0 8px; /* Sedikit jarak antar link */
+    margin: 0 8px;
+    display: inline-block; /* Agar bisa diatur posisinya */
 }
 
 .footer-copyright { 
@@ -67,6 +66,7 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
     color: #999; 
     text-transform: uppercase; 
     letter-spacing: 2px;
+    display: block; /* Memaksa ke tengah bawah */
 }
 
 /* Responsive */
