@@ -94,11 +94,7 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
     }
 }
 
-/* Memperbaiki jarak agar tidak terlalu rapat di iPad */
-@media (min-width: 768px) and (max-width: 1024px) {
-    .header-minimal { padding: 60px 0; }
-    .footer-final { margin-top: 60px; padding: 60px 20px; }
-}
+
 
 /* Layout About Page */
 .about-page { background: #fff; }
