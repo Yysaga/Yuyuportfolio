@@ -89,7 +89,7 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
 /* Berlaku untuk layar di bawah 1024px sampai 601px */
 @media (max-width: 1024px) {
     .gallery {
-        column-count: 3;
+        column-count: 2;
         padding: 0 40px;
     }
 }
