@@ -76,26 +76,6 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
     letter-spacing: 2px;
 }
 
-/* Responsive */
-@media (max-width: 900px) { .gallery { column-count: 2; } }
-@media (max-width: 600px) { .gallery { column-count: 1; padding: 0 20px; } }
-/* Khusus untuk iPad/Tablet (768px sampai 1024px) */
-@media (max-width: 1024px) {
-    /* Mengatur galeri agar tetap proporsional */
-    .gallery { 
-        column-count: 2; 
-        padding: 0 40px; 
-    }
-
-    /* Memastikan footer tidak melebar/terpotong */
-    .footer-container {
-        padding: 0 20px;
-        width: 90%;
-    }
-}
-
-
-
 /* Layout About Page */
 .about-page { background: #fff; }
 .about-container { 
@@ -126,23 +106,27 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
 }
 .email-btn:hover { background: #111; color: #fff; }
 
-/* 1. Desktop: 3 Kolom */
-.gallery { 
-    column-count: 3; 
-    column-gap: 30px; 
-    padding: 0 5%; 
+/* 1. DESKTOP (Default - 3 Kolom) */
+.gallery {
+    column-count: 3;
+    column-gap: 30px;
+    padding: 0 5%;
 }
 
-/* 2. iPad/Tablet: 2 Kolom */
-@media (max-width: 900px) { 
-    .gallery { column-count: 2; } 
+/* 2. TABLET / IPAD (2 Kolom) */
+/* Berlaku untuk layar di bawah 1024px sampai 601px */
+@media (max-width: 1024px) {
+    .gallery {
+        column-count: 2;
+        padding: 0 40px;
+    }
 }
 
-/* 3. HP: 1 Kolom (PENTING: Harus di bawah agar tidak tertimpa) */
-@media (max-width: 600px) { 
-    .gallery { 
-        column-count: 1 !important; /* Paksa 1 kolom */
-        padding: 0 20px !important; 
-    } 
+/* 3. MOBILE / HP (1 Kolom) */
+/* Berlaku untuk layar di bawah 600px */
+@media (max-width: 600px) {
+    .gallery {
+        column-count: 1 !important;
+        padding: 0 20px !important;
+    }
 }
-
