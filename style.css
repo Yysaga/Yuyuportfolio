@@ -77,7 +77,7 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
 }
 
 /* Responsive */
-@media (max-width: 900px) { .gallery { column-count: 2; } }
+@media (max-width: 900px) { .gallery { column-count: 1; } }
 @media (max-width: 600px) { .gallery { column-count: 1; padding: 0 20px; } }
 /* Khusus untuk iPad/Tablet (768px sampai 1024px) */
 @media (max-width: 1024px) {
