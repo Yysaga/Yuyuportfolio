@@ -29,22 +29,29 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
 .close { position: absolute; top: 30px; right: 40px; cursor: pointer; font-size: 2rem; color: #111; }
 
 /* Footer Minimalis */
+/* Footer Minimalis - Dibuat Rapi di Tengah */
 .footer { 
+    display: flex;
+    flex-direction: column; /* Biar elemen tersusun ke bawah */
+    align-items: center;    /* Biar semua elemen lurus di tengah */
     text-align: center; 
     padding: 80px 20px; 
     border-top: 1px solid #f4f4f4; 
     margin-top: 80px; 
 }
+
 .footer-about { 
     font-size: 0.8rem; 
     color: #666; 
     max-width: 400px; 
-    margin: 0 auto 25px auto; 
+    margin-bottom: 25px; 
     line-height: 1.5;
 }
+
 .footer-social { 
     margin-bottom: 25px; 
 }
+
 .footer-social a { 
     color: #111; 
     text-decoration: none; 
@@ -52,8 +59,9 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
     font-weight: 600; 
     text-transform: uppercase; 
     letter-spacing: 1px;
-    margin: 0 5px;
+    margin: 0 8px; /* Sedikit jarak antar link */
 }
+
 .footer-copyright { 
     font-size: 0.65rem; 
     color: #999; 
