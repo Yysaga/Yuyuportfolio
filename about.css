@@ -68,6 +68,32 @@
     cursor: pointer;
 }
 
+/* Update pada bagian ini di about.css */
+.modal-carousel {
+    display: flex;
+    overflow-x: auto; 
+    gap: 20px;
+    padding: 20px;
+    max-width: 90%;
+    
+    /* INI KUNCI AGAR RASANYA SEPERTI CAROUSEL */
+    scroll-snap-type: x mandatory; 
+    -webkit-overflow-scrolling: touch; /* Kelancaran di iOS/iPhone */
+    scrollbar-width: none; /* Menghilangkan scrollbar biar bersih */
+}
+
+/* Sembunyikan scrollbar di Chrome/Safari */
+.modal-carousel::-webkit-scrollbar { display: none; }
+
+.modal-carousel img {
+    max-height: 80vh;
+    border-radius: 8px;
+    object-fit: contain;
+    
+    /* Setiap gambar akan 'snap' ke tengah saat di-scroll */
+    scroll-snap-align: center; 
+}
+
 /* Responsive khusus About */
 @media (max-width: 900px) {
     .about-container { flex-direction: column; text-align: center; gap: 40px; padding: 50px 5%; }
