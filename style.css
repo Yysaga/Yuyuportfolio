@@ -83,7 +83,7 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
 @media (max-width: 1024px) {
     /* Mengatur galeri agar tetap proporsional */
     .gallery { 
-        column-count: 2; 
+        column-count: 1; 
         padding: 0 40px; 
     }
 
