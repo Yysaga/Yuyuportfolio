@@ -28,6 +28,39 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
 .lightbox-content { max-width: 70%; max-height: 80%; margin: 5% auto; display: block; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
 .close { position: absolute; top: 30px; right: 40px; cursor: pointer; font-size: 2rem; color: #111; }
 
+/* Footer Minimalis */
+.footer { 
+    text-align: center; 
+    padding: 80px 20px; 
+    border-top: 1px solid #f4f4f4; 
+    margin-top: 80px; 
+}
+.footer-about { 
+    font-size: 0.8rem; 
+    color: #666; 
+    max-width: 400px; 
+    margin: 0 auto 25px auto; 
+    line-height: 1.5;
+}
+.footer-social { 
+    margin-bottom: 25px; 
+}
+.footer-social a { 
+    color: #111; 
+    text-decoration: none; 
+    font-size: 0.75rem; 
+    font-weight: 600; 
+    text-transform: uppercase; 
+    letter-spacing: 1px;
+    margin: 0 5px;
+}
+.footer-copyright { 
+    font-size: 0.65rem; 
+    color: #999; 
+    text-transform: uppercase; 
+    letter-spacing: 2px;
+}
+
 /* Responsive */
 @media (max-width: 900px) { .gallery { column-count: 2; } }
 @media (max-width: 600px) { .gallery { column-count: 1; padding: 0 20px; } }
