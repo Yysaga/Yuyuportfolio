@@ -28,45 +28,59 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
 .lightbox-content { max-width: 70%; max-height: 80%; margin: 5% auto; display: block; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
 .close { position: absolute; top: 30px; right: 40px; cursor: pointer; font-size: 2rem; color: #111; }
 
-/* Footer Rata Tengah - Versi Paksa */
-.footer { 
-    width: 100%;           /* Memastikan footer selebar layar */
-    text-align: center;    /* Memaksa teks di tengah */
-    padding: 80px 20px; 
-    border-top: 1px solid #f4f4f4; 
-    margin-top: 80px; 
-    display: block;        /* Memastikan tidak ada conflict flex */
+/* Footer Rata Tengah - Tanpa Kompromi */
+.footer-final {
+    width: 100%;
+    display: flex;            /* Mengaktifkan flex */
+    justify-content: center;  /* Mengatur posisi ke tengah horizontal */
+    padding: 80px 20px;
+    border-top: 1px solid #eee;
+    margin-top: 80px;
 }
 
-.footer-about { 
-    font-size: 0.8rem; 
-    color: #666; 
-    max-width: 400px; 
-    margin: 0 auto 25px auto; /* 0 auto ini kunci agar elemen block ke tengah */
-    line-height: 1.5;
+.footer-container {
+    display: flex;
+    flex-direction: column;   /* Menyusun konten ke bawah */
+    align-items: center;      /* Memaksa konten di tengah */
+    text-align: center;       /* Memastikan teks rata tengah */
+    max-width: 500px;         /* Batas lebar agar tidak terlalu lebar */
+    width: 100%;
 }
 
-.footer-social { 
-    margin-bottom: 25px; 
-}
-
-.footer-social a { 
-    color: #111; 
-    text-decoration: none; 
-    font-size: 0.75rem; 
-    font-weight: 600; 
-    text-transform: uppercase; 
-    letter-spacing: 1px;
-    margin: 0 8px;
-    display: inline-block; /* Agar bisa diatur posisinya */
-}
-
-.footer-copyright { 
-    font-size: 0.65rem; 
-    color: #999; 
-    text-transform: uppercase; 
+.about-title {
+    font-size: 0.8rem;
+    text-transform: uppercase;
     letter-spacing: 2px;
-    display: block; /* Memaksa ke tengah bawah */
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.about-desc {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.social-links {
+    margin-bottom: 25px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.social-links a {
+    color: #111;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.copyright {
+    font-size: 0.65rem;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 /* Responsive */
