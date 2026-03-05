@@ -76,35 +76,7 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
     letter-spacing: 2px;
 }
 
-/* Layout About Page */
-.about-page { background: #fff; }
-.about-container { 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    gap: 80px; 
-    padding: 100px 10%; 
-    min-height: 70vh;
-}
-.about-image { flex: 1; max-width: 400px; }
-.about-image img { width: 100%; border-radius: 4px; display: block; }
-.about-content { flex: 1; max-width: 500px; }
-.about-content h1 { font-size: 2rem; font-weight: 300; margin-bottom: 30px; line-height: 1.2; }
-.about-content p { font-size: 1rem; color: #666; line-height: 1.8; margin-bottom: 20px; }
 
-.email-btn { 
-    display: inline-block; 
-    margin-top: 20px; 
-    padding: 12px 30px; 
-    border: 1px solid #111; 
-    color: #111; 
-    text-decoration: none; 
-    font-size: 0.8rem; 
-    font-weight: 600; 
-    text-transform: uppercase; 
-    transition: 0.3s;
-}
-.email-btn:hover { background: #111; color: #fff; }
 
 /* 1. DESKTOP (Default - 3 Kolom) */
 .gallery {
