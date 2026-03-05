@@ -50,5 +50,29 @@
         </div>
     </footer>
 
+<script>
+    const modal = document.getElementById("testimonialModal");
+    const openBtn = document.getElementById("openModal");
+    const closeBtn = document.querySelector(".close-modal");
+
+    // Buka Modal
+    openBtn.onclick = function(e) {
+        e.preventDefault();
+        modal.classList.add("active");
+    }
+
+    // Tutup Modal
+    closeBtn.onclick = function() {
+        modal.classList.remove("active");
+    }
+
+    // Tutup kalau klik di luar gambar
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.classList.remove("active");
+        }
+    }
+</script>
+
 </body>
 </html>
