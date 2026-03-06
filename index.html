@@ -62,27 +62,20 @@
 
     images.forEach(img => {
         img.addEventListener('click', () => {
-            lightbox.classList.add('active'); // Aktifkan lightbox
-            lightboxImg.src = img.src;
+            lightbox.classList.add('active'); 
+            lightboxImg.src = img.src; // Masukkan source gambar
             captionText.innerText = img.alt;
             document.body.style.overflow = 'hidden';
+            console.log("Image source set to:", img.src); // Cek ini di Inspect Element -> Console
         });
     });
 
-    const closeLightbox = () => {
-        lightbox.classList.remove('active'); // Matikan lightbox
+    closeBtn.addEventListener('click', () => {
+        lightbox.classList.remove('active');
         document.body.style.overflow = 'auto';
-    };
-
-    closeBtn.addEventListener('click', closeLightbox);
-    
-    // Klik di area gelap untuk menutup
-    lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) {
-            closeLightbox();
-        }
     });
 </script>
+
 
 
 
