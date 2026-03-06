@@ -72,48 +72,26 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
     letter-spacing: 2px;
 }
 
-
-
-/* 1. DESKTOP (Default - 3 Kolom) */
-.gallery {
-    column-count: 3;
-    column-gap: 30px;
-    padding: 0 5%;
-}
-
-/* Pastikan ini ada di file style.css kamu */
-#lightbox {
-    display: none !important; /* INI KUNCINYA: Paksa sembunyi saat load */
-    position: fixed;
-    z-index: 9999;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.95);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Ini akan aktif HANYA saat JavaScript menambah class 'active' */
-#lightbox.active {
-    display: flex !important;
+/* --- Lightbox Styles --- */
+.lightbox {
+    display: none; 
+    position: fixed; 
+    z-index: 9999; 
+    left: 0; 
+    top: 0; 
+    width: 100vw; 
+    height: 100vh; 
+    background-color: rgba(0, 0, 0, 0.95); 
+    align-items: center; 
+    justify-content: center; 
+    overflow: hidden;
 }
 
 .lightbox-content {
-    max-width: 90vw;
-    max-height: 75vh;
-    display: block; /* PENTING: Harus block agar muncul */
+    max-width: 95vw;
+    max-height: 90vh;
     object-fit: contain;
-}
-
-#caption {
-    margin-top: 20px;
-    color: white;
-    font-size: 1.2rem;
-    font-family: sans-serif;
-    text-align: center;
+    cursor: default;
 }
 
 .close {
@@ -124,8 +102,27 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
+    z-index: 10000;
 }
 
+/* Biar gambar di galeri bisa diklik */
+.art-item img {
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.art-item img:hover {
+    transform: scale(1.02);
+}
+
+
+
+/* 1. DESKTOP (Default - 3 Kolom) */
+.gallery {
+    column-count: 3;
+    column-gap: 30px;
+    padding: 0 5%;
+}
 
 
 /* 2. TABLET / IPAD (2 Kolom) */
