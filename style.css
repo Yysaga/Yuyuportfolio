@@ -74,7 +74,7 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
 
 /* Styling Lightbox agar Full-Screen & Immersive */
 .lightbox {
-    display: none; 
+    display: none; /* Pastikan ini disembunyikan secara default */
     position: fixed; 
     z-index: 9999; 
     left: 0; 
@@ -82,32 +82,18 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
     width: 100vw; 
     height: 100vh; 
     background-color: rgba(0, 0, 0, 0.95); 
-    
-    /* Mengatur agar gambar dan caption menumpuk rapi di tengah */
-    display: flex; 
-    flex-direction: column; 
-    align-items: center;    
-    justify-content: center; 
-    overflow: hidden;
+    align-items: center;    /* Center */
+    justify-content: center; /* Center */
 }
 
 .lightbox-content {
     max-width: 95vw;
-    max-height: 80vh; /* Ruang untuk gambar */
+    max-height: 90vh;
     object-fit: contain;
     display: block;
+    margin: auto;
 }
 
-#caption {
-    margin-top: 15px; /* Memberi jarak antara gambar dan caption */
-    color: #ccc;
-    text-align: center;
-    font-size: 1rem;
-    font-family: sans-serif;
-    max-width: 90vw;
-}
-
-/* Tombol Close tetap aman di pojok */
 .close {
     position: absolute;
     top: 20px;
@@ -118,6 +104,7 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
     cursor: pointer;
     z-index: 10000;
 }
+
 
 
 
