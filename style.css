@@ -83,52 +83,47 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
 
 /* Styling Lightbox - Bersih & Standar */
 #lightbox {
-    display: none; /* Sembunyikan saat tidak dipakai */
+    display: none; /* Default tersembunyi */
     position: fixed;
     z-index: 9999;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.95);
+    background: rgba(0, 0, 0, 0.95);
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 
 #lightbox.active {
-    display: flex; /* Hanya muncul kalau ada kelas 'active' */
+    display: flex; /* Hanya muncul saat ada class 'active' */
 }
 
 .lightbox-content {
     max-width: 90vw;
-    max-height: 70vh;
+    max-height: 75vh;
+    display: block; /* PENTING: Harus block agar muncul */
     object-fit: contain;
-    margin-bottom: 20px; /* Jarak antara gambar dan teks */
 }
 
 #caption {
+    margin-top: 20px;
     color: white;
     font-size: 1.2rem;
-    text-align: center;
     font-family: sans-serif;
-    max-width: 90vw;
+    text-align: center;
 }
 
 .close {
     position: absolute;
     top: 20px;
     right: 30px;
-    color: #fff;
+    color: white;
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
-    z-index: 10000;
 }
-
-
-
-
 
 
 
