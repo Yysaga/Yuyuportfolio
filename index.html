@@ -43,30 +43,50 @@
     </div>
 
     <script>
-        function filterSelection(c) {
-            var x = document.getElementsByClassName("art-item");
-            if (c == "all") c = "";
-            for (var i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-                if (x[i].className.indexOf(c) > -1) { x[i].style.display = "block"; }
+    // --- 1. Fungsi Filter (Untuk kategori gambar) ---
+    function filterSelection(c) {
+        var x = document.getElementsByClassName("art-item");
+        if (c == "all") c = "";
+        for (var i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+            if (x[i].className.indexOf(c) > -1) { 
+                x[i].style.display = "block"; 
             }
         }
+    }
 
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('full-image');
-        const images = document.querySelectorAll('.art-item img');
-        const closeBtn = document.querySelector('.close');
+    // --- 2. Fungsi Lightbox (Untuk tampilan Full-Screen) ---
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('full-image');
+    const images = document.querySelectorAll('.art-item img');
+    const closeBtn = document.querySelector('.close');
 
-        images.forEach(img => {
-            img.addEventListener('click', () => {
-                lightbox.style.display = 'block';
-                lightboxImg.src = img.src;
-            });
+    // Event untuk membuka lightbox saat gambar diklik
+    images.forEach(img => {
+        img.addEventListener('click', () => {
+            lightbox.style.display = 'flex'; // Tampilkan lightbox
+            lightboxImg.src = img.src;       // Masukkan sumber gambar
+            document.body.style.overflow = 'hidden'; // Kunci scroll halaman belakang
         });
+    });
 
-        closeBtn.addEventListener('click', () => { lightbox.style.display = 'none'; });
-        lightbox.addEventListener('click', (e) => { if (e.target !== lightboxImg) { lightbox.style.display = 'none'; } });
-    </script>
+    // Fungsi untuk menutup lightbox
+    const closeLightbox = () => {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Aktifkan kembali scroll
+    };
+
+    // Event klik tombol close
+    closeBtn.addEventListener('click', closeLightbox);
+
+    // Event klik di luar gambar (tutup jika area hitam diklik)
+    lightbox.addEventListener('click', (e) => {
+        if (e.target !== lightboxImg) {
+            closeLightbox();
+        }
+    });
+</script>
+
 
     <footer class="footer-final">
         <div class="footer-container">
