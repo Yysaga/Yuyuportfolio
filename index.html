@@ -45,51 +45,45 @@
 
 
     <script>
-    // --- 1. Fungsi Filter (Untuk kategori gambar) ---
     function filterSelection(c) {
         var x = document.getElementsByClassName("art-item");
         if (c == "all") c = "";
         for (var i = 0; i < x.length; i++) {
             x[i].style.display = "none";
-            if (x[i].className.indexOf(c) > -1) { 
-                x[i].style.display = "block"; 
-            }
+            if (x[i].className.indexOf(c) > -1) { x[i].style.display = "block"; }
         }
     }
 
-    // --- 2. Fungsi Lightbox (Tampilan Full-Screen + Caption) ---
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('full-image');
-    const captionText = document.getElementById('caption'); 
+    const captionText = document.getElementById('caption');
     const images = document.querySelectorAll('.art-item img');
     const closeBtn = document.querySelector('.close');
 
-    // Event untuk membuka lightbox saat gambar diklik
     images.forEach(img => {
         img.addEventListener('click', () => {
-            lightbox.classList.add('active');         // Menambahkan class 'active' agar CSS muncul
-            lightboxImg.src = img.src;               // Ambil sumber gambar
-            captionText.innerText = img.alt;         // Tampilkan teks dari atribut 'alt'
-            document.body.style.overflow = 'hidden'; // Kunci scroll halaman belakang
+            lightbox.classList.add('active'); // Aktifkan lightbox
+            lightboxImg.src = img.src;
+            captionText.innerText = img.alt;
+            document.body.style.overflow = 'hidden';
         });
     });
 
-    // Fungsi untuk menutup lightbox
     const closeLightbox = () => {
-        lightbox.classList.remove('active');         // Menghapus class 'active' agar CSS hilang
-        document.body.style.overflow = 'auto';       // Aktifkan kembali scroll
+        lightbox.classList.remove('active'); // Matikan lightbox
+        document.body.style.overflow = 'auto';
     };
 
-    // Event klik tombol close
     closeBtn.addEventListener('click', closeLightbox);
-
-    // Event klik di luar gambar (tutup jika area hitam diklik)
+    
+    // Klik di area gelap untuk menutup
     lightbox.addEventListener('click', (e) => {
-        if (e.target !== lightboxImg && e.target !== captionText && e.target !== closeBtn) {
+        if (e.target === lightbox) {
             closeLightbox();
         }
     });
 </script>
+
 
 
 
