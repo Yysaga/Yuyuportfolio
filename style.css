@@ -116,6 +116,18 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
     z-index: 10000;
 }
 
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    color: #ccc;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 1.2rem;
+    font-family: sans-serif;
+}
+
+
 
 /* 2. TABLET / IPAD (2 Kolom) */
 /* Berlaku untuk layar di bawah 1024px sampai 601px */
