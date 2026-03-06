@@ -83,26 +83,40 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
 
 /* Styling Lightbox agar Full-Screen & Immersive */
 .lightbox {
-    display: none; /* Default tersembunyi */
-    position: fixed;
-    z-index: 9999;
-    left: 0;
-    top: 0;
-    width: 100vw; /* Lebar 100% layar */
-    height: 100vh; /* Tinggi 100% layar */
-    background-color: rgba(0, 0, 0, 0.95); /* Hitam pekat premium */
-    align-items: center;
-    justify-content: center;
+    display: none; 
+    position: fixed; 
+    z-index: 9999; 
+    left: 0; 
+    top: 0; 
+    width: 100vw; 
+    height: 100vh; 
+    background-color: rgba(0, 0, 0, 0.95); 
+    
+    /* INI KUNCINYA */
+    display: flex; 
+    flex-direction: column; /* Mengubah susunan jadi atas-bawah */
+    align-items: center;    /* Memastikan semua di tengah horizontal */
+    justify-content: center; /* Memastikan semua di tengah vertikal */
     overflow: hidden;
 }
 
 .lightbox-content {
     max-width: 95vw;
-    max-height: 90vh;
-    object-fit: contain; /* Penting: Gambar tidak akan gepeng */
-    margin: auto;
+    max-height: 80vh; /* Sedikit dikurangi agar ada ruang buat caption di bawah */
+    object-fit: contain;
     display: block;
+    margin: 0; /* Hapus margin auto supaya tidak berantakan dengan flex */
 }
+
+#caption {
+    margin-top: 15px; /* Memberi jarak antara gambar dan caption */
+    color: #ccc;
+    text-align: center;
+    font-size: 1rem;
+    font-family: sans-serif;
+    max-width: 90vw; /* Agar tidak terlalu lebar di layar HP */
+}
+
 
 /* Tombol X yang mudah diklik di iPad/HP */
 .close {
@@ -116,16 +130,6 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
     z-index: 10000;
 }
 
-#caption {
-    margin: auto;
-    display: block;
-    width: 80%;
-    color: #ccc;
-    text-align: center;
-    padding: 10px 0;
-    font-size: 1.2rem;
-    font-family: sans-serif;
-}
 
 
 
