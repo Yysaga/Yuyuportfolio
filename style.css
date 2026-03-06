@@ -81,9 +81,9 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
     padding: 0 5%;
 }
 
-/* Styling Lightbox - Bersih & Standar */
+/* Pastikan ini ada di file style.css kamu */
 #lightbox {
-    display: none; /* Default tersembunyi */
+    display: none !important; /* INI KUNCINYA: Paksa sembunyi saat load */
     position: fixed;
     z-index: 9999;
     top: 0;
@@ -96,8 +96,9 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
     align-items: center;
 }
 
+/* Ini akan aktif HANYA saat JavaScript menambah class 'active' */
 #lightbox.active {
-    display: flex; /* Hanya muncul saat ada class 'active' */
+    display: flex !important;
 }
 
 .lightbox-content {
