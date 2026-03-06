@@ -45,7 +45,7 @@
 
 
     <script>
-    // --- 1. Fungsi Filter ---
+    // 1. Fungsi Filter (Untuk kategori)
     function filterSelection(c) {
         var x = document.getElementsByClassName("art-item");
         if (c == "all") c = "";
@@ -57,36 +57,42 @@
         }
     }
 
-    // --- 2. Fungsi Lightbox (Dengan Caption) ---
+    // 2. Logika Lightbox
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('full-image');
-    const captionText = document.getElementById('caption'); // Ambil elemen caption
+    const captionText = document.getElementById('caption');
     const images = document.querySelectorAll('.art-item img');
     const closeBtn = document.querySelector('.close');
 
+    // Sembunyikan lightbox saat pertama kali load
+    lightbox.style.display = 'none';
+
+    // Event buka lightbox
     images.forEach(img => {
         img.addEventListener('click', () => {
-            lightbox.style.display = 'flex'; 
-            lightboxImg.src = img.src;
-            captionText.innerText = img.alt; // Ambil teks dari atribut ALT
-            document.body.style.overflow = 'hidden';
+            lightbox.style.display = 'flex'; // Munculkan
+            lightboxImg.src = img.src;       // Ambil gambar
+            captionText.innerText = img.alt; // Ambil teks dari alt
+            document.body.style.overflow = 'hidden'; // Kunci scroll
         });
     });
 
+    // Fungsi tutup
     const closeLightbox = () => {
-        lightbox.style.display = 'none';
-        document.body.style.overflow = 'auto';
+        lightbox.style.display = 'none'; // Sembunyikan
+        document.body.style.overflow = 'auto'; // Aktifkan scroll
     };
 
     closeBtn.addEventListener('click', closeLightbox);
-    
+
+    // Klik di luar gambar untuk tutup
     lightbox.addEventListener('click', (e) => {
-        // Jangan tutup kalau yang diklik adalah gambar atau caption
         if (e.target !== lightboxImg && e.target !== captionText) {
             closeLightbox();
         }
     });
 </script>
+
 
 
 
