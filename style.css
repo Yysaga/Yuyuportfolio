@@ -81,43 +81,41 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
     padding: 0 5%;
 }
 
-/* Styling Lightbox yang ketat dan rapi */
+/* Pastikan ini menimpa semua pengaturan sebelumnya */
 .lightbox {
-    display: none; 
-    position: fixed; 
-    z-index: 9999; 
-    left: 0; 
-    top: 0; 
-    width: 100vw; 
-    height: 100vh; 
-    background-color: rgba(0, 0, 0, 0.95); 
+    display: none; /* Default hidden */
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.95);
     
-    /* PENTING: Memaksa susunan vertikal (kolom) */
-    display: flex; 
-    flex-direction: column; 
-    align-items: center;    /* Center Horizontal */
-    justify-content: center; /* Center Vertikal */
-    overflow: hidden;
+    /* PENTING: Memaksa susunan kolom dan centering */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertikal center */
+    align-items: center;     /* Horizontal center */
 }
 
 .lightbox-content {
     max-width: 90vw;
     max-height: 75vh;
     object-fit: contain;
-    display: block;
-    margin: 0; /* Hapus margin auto supaya tidak berantakan */
+    display: block; /* Harus block agar tidak ada margin aneh */
+    margin: 0;      /* Paksa nol agar tidak mendorong ke kiri/kanan */
 }
 
 #caption {
-    margin-top: 20px; 
+    margin-top: 15px;
     color: #fff;
     text-align: center;
     font-family: sans-serif;
     font-size: 1.1rem;
-    width: 100%; /* Memastikan teks mengambil lebar penuh untuk centering */
+    width: 100%; /* Lebar penuh agar bisa di-center oleh container */
 }
 
-/* Tombol Close tidak berubah, tetap di pojok */
 .close {
     position: absolute;
     top: 20px;
@@ -128,6 +126,7 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
     cursor: pointer;
     z-index: 10000;
 }
+
 
 
 
