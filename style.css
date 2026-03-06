@@ -81,7 +81,7 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
     padding: 0 5%;
 }
 
-/* Styling Lightbox agar Full-Screen & Immersive */
+/* Styling Lightbox yang ketat dan rapi */
 .lightbox {
     display: none; 
     position: fixed; 
@@ -92,33 +92,32 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
     height: 100vh; 
     background-color: rgba(0, 0, 0, 0.95); 
     
-    /* INI KUNCINYA */
+    /* PENTING: Memaksa susunan vertikal (kolom) */
     display: flex; 
-    flex-direction: column; /* Mengubah susunan jadi atas-bawah */
-    align-items: center;    /* Memastikan semua di tengah horizontal */
-    justify-content: center; /* Memastikan semua di tengah vertikal */
+    flex-direction: column; 
+    align-items: center;    /* Center Horizontal */
+    justify-content: center; /* Center Vertikal */
     overflow: hidden;
 }
 
 .lightbox-content {
-    max-width: 95vw;
-    max-height: 80vh; /* Sedikit dikurangi agar ada ruang buat caption di bawah */
+    max-width: 90vw;
+    max-height: 75vh;
     object-fit: contain;
     display: block;
-    margin: 0; /* Hapus margin auto supaya tidak berantakan dengan flex */
+    margin: 0; /* Hapus margin auto supaya tidak berantakan */
 }
 
 #caption {
-    margin-top: 15px; /* Memberi jarak antara gambar dan caption */
-    color: #ccc;
+    margin-top: 20px; 
+    color: #fff;
     text-align: center;
-    font-size: 1rem;
     font-family: sans-serif;
-    max-width: 90vw; /* Agar tidak terlalu lebar di layar HP */
+    font-size: 1.1rem;
+    width: 100%; /* Memastikan teks mengambil lebar penuh untuk centering */
 }
 
-
-/* Tombol X yang mudah diklik di iPad/HP */
+/* Tombol Close tidak berubah, tetap di pojok */
 .close {
     position: absolute;
     top: 20px;
@@ -129,6 +128,7 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
     cursor: pointer;
     z-index: 10000;
 }
+
 
 
 
