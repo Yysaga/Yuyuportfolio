@@ -23,10 +23,6 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
 .art-item img { width: 100%; display: block; border-radius: 4px; transition: opacity 0.3s; }
 .art-item:hover img { opacity: 0.7; }
 
-/* Lightbox */
-.lightbox { display: none; position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%; background: #fff; text-align: center; }
-.lightbox-content { max-width: 70%; max-height: 80%; margin: 5% auto; display: block; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-.close { position: absolute; top: 30px; right: 40px; cursor: pointer; font-size: 2rem; color: #111; }
 
 /* Footer Rata Tengah - Tanpa Kompromi */
 .footer-final {
@@ -84,6 +80,42 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
     column-gap: 30px;
     padding: 0 5%;
 }
+
+/* Styling Lightbox agar Full-Screen & Immersive */
+.lightbox {
+    display: none; /* Default tersembunyi */
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100vw; /* Lebar 100% layar */
+    height: 100vh; /* Tinggi 100% layar */
+    background-color: rgba(0, 0, 0, 0.95); /* Hitam pekat premium */
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.lightbox-content {
+    max-width: 95vw;
+    max-height: 90vh;
+    object-fit: contain; /* Penting: Gambar tidak akan gepeng */
+    margin: auto;
+    display: block;
+}
+
+/* Tombol X yang mudah diklik di iPad/HP */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10000;
+}
+
 
 /* 2. TABLET / IPAD (2 Kolom) */
 /* Berlaku untuk layar di bawah 1024px sampai 601px */
