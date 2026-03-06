@@ -40,6 +40,7 @@
     <div id="lightbox" class="lightbox">
     <span class="close">&times;</span>
        <img class="lightbox-content" id="full-image" alt="Full Image">
+       <p id="caption"></p>
     </div>
 
 
@@ -56,38 +57,36 @@
         }
     }
 
-    // --- 2. Fungsi Lightbox ---
+    // --- 2. Fungsi Lightbox (Dengan Caption) ---
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('full-image');
+    const captionText = document.getElementById('caption'); // Ambil elemen caption
     const images = document.querySelectorAll('.art-item img');
     const closeBtn = document.querySelector('.close');
 
     images.forEach(img => {
         img.addEventListener('click', () => {
-            lightbox.style.display = 'flex'; // Tampilkan saat diklik
+            lightbox.style.display = 'flex'; 
             lightboxImg.src = img.src;
+            captionText.innerText = img.alt; // Ambil teks dari atribut ALT
             document.body.style.overflow = 'hidden';
         });
     });
 
     const closeLightbox = () => {
-        lightbox.style.display = 'none'; // Sembunyikan saat ditutup
+        lightbox.style.display = 'none';
         document.body.style.overflow = 'auto';
     };
 
     closeBtn.addEventListener('click', closeLightbox);
     
-    // Tutup jika klik background hitam
     lightbox.addEventListener('click', (e) => {
-        if (e.target !== lightboxImg) {
+        // Jangan tutup kalau yang diklik adalah gambar atau caption
+        if (e.target !== lightboxImg && e.target !== captionText) {
             closeLightbox();
         }
     });
 </script>
-
-
-
-
 
 
 
