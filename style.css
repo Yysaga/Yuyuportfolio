@@ -81,40 +81,44 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
     padding: 0 5%;
 }
 
-/* Pastikan ini menimpa semua pengaturan sebelumnya */
-.lightbox {
-    display: none; /* Default hidden */
-    position: fixed;
-    z-index: 9999;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.95);
+/* Paksa Lightbox jadi kolom vertikal di tengah */
+#lightbox {
+    display: none !important; /* Default sembunyi */
+    position: fixed !important;
+    z-index: 9999 !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: rgba(0,0,0,0.95) !important;
     
-    /* PENTING: Memaksa susunan kolom dan centering */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Vertikal center */
-    align-items: center;     /* Horizontal center */
+    /* PENTING: Paksa kolom dan center */
+    display: flex !important; 
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+#lightbox.active {
+    display: flex !important;
 }
 
 .lightbox-content {
-    max-width: 90vw;
-    max-height: 75vh;
-    object-fit: contain;
-    display: block; /* Harus block agar tidak ada margin aneh */
-    margin: 0;      /* Paksa nol agar tidak mendorong ke kiri/kanan */
+    max-width: 90vw !important;
+    max-height: 70vh !important;
+    object-fit: contain !important;
+    margin: 0 !important;
 }
 
 #caption {
-    margin-top: 15px;
-    color: #fff;
-    text-align: center;
-    font-family: sans-serif;
-    font-size: 1.1rem;
-    width: 100%; /* Lebar penuh agar bisa di-center oleh container */
+    margin-top: 20px !important;
+    color: white !important;
+    font-size: 1.2rem !important;
+    text-align: center !important;
+    width: 100% !important;
+    font-family: sans-serif !important;
 }
+
 
 .close {
     position: absolute;
