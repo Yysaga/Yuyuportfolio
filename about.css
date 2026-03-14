@@ -113,3 +113,37 @@
     .about-container { flex-direction: column; text-align: center; gap: 40px; padding: 50px 5%; }
     .about-content { max-width: 100%; }
 }
+
+/* Update agar foto profil bulat sempurna */
+.about-image { 
+    flex: 1; 
+    max-width: 350px; /* Ukuran bisa kamu sesuaikan */
+}
+
+.about-image img { 
+    width: 100%; 
+    aspect-ratio: 1 / 1;    /* Memaksa gambar jadi kotak 1:1 */
+    object-fit: cover;      /* Memastikan gambar tidak gepeng saat jadi kotak */
+    border-radius: 50%;     /* Membuat gambar jadi bulat */
+    display: block; 
+    border: 1px solid #eee; /* Opsional: garis tipis agar terlihat rapi */
+}
+
+
+@media (max-width: 900px) {
+    .about-container { 
+        flex-direction: column; 
+        text-align: center; 
+        gap: 40px; 
+        padding: 50px 5%; 
+    }
+
+    /* Tambahkan ini agar bulatan foto ada di tengah */
+    .about-image {
+        margin: 0 auto; 
+        max-width: 250px; /* Ukuran lebih pas untuk layar HP */
+    }
+
+    .about-content { max-width: 100%; }
+}
+
