@@ -147,3 +147,58 @@
     .about-content { max-width: 100%; }
 }
 
+/* --- MODAL TESTIMONIAL DINAMIK --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0; top: 0;
+    width: 100vw; 
+    height: 100vh;
+    background-color: rgba(0,0,0,0.95);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active { display: flex; }
+
+.modal-carousel {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 20px;
+    width: 100%;       /* Memenuhi lebar */
+    max-width: 600px;  /* Batas maksimal agar tidak kebesaran di iPad/PC */
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; 
+    -webkit-overflow-scrolling: touch;
+}
+
+.modal-carousel::-webkit-scrollbar { display: none; }
+
+.modal-carousel img {
+    /* INI KUNCI DINAMIKNYA */
+    width: 85vw;       /* Gambar ambil 85% lebar layar HP/iPad */
+    max-width: 450px;  /* Tapi jangan lebih lebar dari 450px di layar besar */
+    height: auto;      /* Tinggi mengikuti proporsi gambar asli */
+    max-height: 70vh;  /* Agar tidak melebihi tinggi layar */
+    object-fit: contain;
+    border-radius: 12px;
+    flex-shrink: 0;    /* Mencegah gambar menyusut/gepeng */
+    scroll-snap-align: center; /* Gambar otomatis 'snap' ke tengah */
+    background: #fff;  /* Opsional: background putih jika screenshot testi transparan */
+}
+
+/* Tombol Tutup yang lebih mudah ditekan di HP */
+.close-modal {
+    position: absolute;
+    top: 30px; 
+    right: 30px;
+    color: #fff;
+    font-size: 40px;
+    cursor: pointer;
+    z-index: 10001;
+    line-height: 1;
+}
+
+
