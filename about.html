@@ -59,6 +59,7 @@
     const modal = document.getElementById("testimonialModal");
     const openBtn = document.getElementById("openModal");
     const closeBtn = document.querySelector(".close-modal");
+    const carousel = document.querySelector(".modal-carousel");
 
     // Buka Modal
     openBtn.onclick = function(e) {
@@ -66,18 +67,22 @@
         modal.classList.add("active");
     }
 
-    // Tutup Modal
-    closeBtn.onclick = function() {
+    // Fungsi Tutup
+    const closeModal = () => {
         modal.classList.remove("active");
     }
 
-    // Tutup kalau klik di luar gambar
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.classList.remove("active");
+    closeBtn.onclick = closeModal;
+
+    // KUNCI: Klik dimana saja di area hitam untuk menutup
+    modal.onclick = function(event) {
+        // Jika yang diklik adalah background modal atau container carousel (bukan gambarnya)
+        if (event.target === modal || event.target === carousel) {
+            closeModal();
         }
     }
 </script>
+
 
 </body>
 </html>
