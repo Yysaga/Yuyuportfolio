@@ -179,19 +179,21 @@
 }
 
 .modal-carousel img {
-    /* KUNCI AGAR GAMBAR SELANJUTNYA KELIHATAN */
-    width: 75vw;         /* Kita perkecil dari 80vw ke 75vw agar ada sisa ruang untuk gambar sebelah */
-    max-width: 400px;    /* Batas maksimal agar tetap proporsional di iPad */
+    /* KUNCI UKURAN KOTAK SERAGAM */
+    width: 75vw;          /* Lebar tetap agar gambar selanjutnya terlihat mengintip */
+    max-width: 400px;     /* Batas maksimal di iPad */
     
-    height: auto;
-    max-height: 65vh;
-    object-fit: contain;
+    aspect-ratio: 1 / 1;  /* MEMAKSA SEMUA JADI KOTAK SEMPURNA */
+    object-fit: cover;    /* Gambar akan memenuhi kotak tanpa gepeng (terpotong rapi) */
+    
     flex-shrink: 0;      
     scroll-snap-align: center; 
-    border-radius: 12px;
+    border-radius: 15px;  /* Pojok tumpul agar elegan */
     background: #fff;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Tambahkan sedikit bayangan agar lebih elegan */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 1px solid #333; /* Garis tipis agar kotak terlihat tegas di background hitam */
 }
+
 
 .modal-carousel::-webkit-scrollbar { display: none; }
 
