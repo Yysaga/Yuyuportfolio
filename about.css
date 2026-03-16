@@ -1,19 +1,74 @@
-/* about.css - Hanya untuk halaman profil */
+/* --- REVISI PROFIL MINIMALIS --- */
 
 .about-container { 
     display: flex; 
     align-items: center; 
     justify-content: center; 
-    gap: 80px; 
-    padding: 100px 10%; 
-    min-height: 70vh;
+    gap: 100px; /* Jarak lebih lebar agar terasa 'airy' / lega */
+    padding: 120px 10%; 
+    min-height: 75vh;
 }
 
-.about-image { flex: 1; max-width: 400px; }
-.about-image img { width: 100%; border-radius: 4px; display: block; }
-.about-content { flex: 1; max-width: 500px; }
-.about-content h1 { font-size: 2rem; font-weight: 300; margin-bottom: 30px; line-height: 1.2; }
-.about-content p { font-size: 1rem; color: #666; line-height: 1.8; margin-bottom: 20px; }
+/* Mengecilkan ukuran foto agar serasi dengan teks */
+.about-image { 
+    flex: 0 0 280px; /* Foto dikunci di ukuran 280px, tidak membesar liar */
+}
+
+.about-image img { 
+    width: 100%; 
+    aspect-ratio: 1 / 1; 
+    object-fit: cover; 
+    border-radius: 50%; 
+    display: block; 
+    filter: grayscale(20%); /* Sentuhan minimalis agar warna tidak terlalu mencolok */
+    border: 1px solid #f0f0f0; 
+}
+
+/* Menyesuaikan konten teks */
+.about-content { 
+    flex: 1; 
+    max-width: 450px; 
+}
+
+.about-content h1 { 
+    font-size: 1.8rem; /* Sedikit lebih kecil agar elegan */
+    font-weight: 300; 
+    margin-bottom: 25px; 
+    line-height: 1.3;
+    letter-spacing: 1px;
+    text-transform: uppercase; /* Menambah kesan visual storyteller profesional */
+}
+
+.about-content p { 
+    font-size: 0.95rem; /* Ukuran teks lebih minimalis */
+    color: #555; 
+    line-height: 1.8; 
+    margin-bottom: 20px;
+    text-align: justify; /* Terlihat lebih rapi seperti buku/majalah */
+}
+
+/* Responsive untuk HP */
+@media (max-width: 900px) {
+    .about-container { 
+        flex-direction: column; 
+        text-align: center; 
+        gap: 30px; 
+        padding: 60px 8%; 
+    }
+
+    .about-image {
+        margin: 0 auto; 
+        max-width: 180px; /* Di HP buat lebih kecil lagi agar proporsional */
+    }
+
+    .about-content h1 {
+        font-size: 1.5rem;
+    }
+    
+    .about-content p {
+        text-align: center; /* Di HP kembali ke rata tengah */
+    }
+}
 
 .email-btn { 
     display: inline-block; 
