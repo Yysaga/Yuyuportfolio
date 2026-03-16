@@ -179,24 +179,23 @@
 }
 
 .modal-carousel img {
-    /* 1. UKURAN WADAH KOTAK YANG SERAGAM */
-    width: 75vw;          /* Lebar tetap agar gambar selanjutnya kelihatan mengintip */
-    max-width: 400px;     /* Batas maksimal di iPad agar tidak kebesaran */
-    aspect-ratio: 1 / 1;  /* MEMAKSA WADAH JADI KOTAK SEMPURNA */
-
-    /* 2. AGAR GAMBAR UTUH TANPA TERPOTONG */
-    object-fit: contain;  /* Menjamin SELURUH gambar terlihat, tidak ada yang terpotong */
+    /* Perbesar sedikit ukurannya agar teks lebih terbaca */
+    width: 85vw;           /* Dari 75vw naik ke 85vw agar lebih lebar di HP */
+    max-width: 500px;      /* Dari 400px naik ke 500px agar lebih besar di iPad/Tablet */
     
-    /* 3. MENYISI AREA KOSONG DI DALAM KOTAK */
-    background: #ffffff;  /* Warna putih bersih untuk mengisi sisa ruang kotak */
-    padding: 20px;       /* Jarak aman agar tulisan testimoni tidak menempel garis kotak */
+    aspect-ratio: 1 / 1;   /* Tetap kotak sempurna */
+    object-fit: contain;   /* Tetap utuh tidak terpotong */
+    background: #ffffff;
     
-    flex-shrink: 0;      
-    scroll-snap-align: center; 
-    border-radius: 15px;  /* Pojok tumpul agar elegan */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Bayangan halus */
-    border: 1px solid #444; /* Garis tipis tegas di background hitam */
+    /* Kurangi sedikit padding agar gambar testimoninya punya ruang lebih luas */
+    padding: 10px;         /* Dari 20px turun ke 10px agar gambar lebih 'mentok' ke pinggir */
+    
+    border-radius: 15px;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
+
 
 
 
