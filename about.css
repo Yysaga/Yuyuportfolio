@@ -178,25 +178,37 @@
     align-items: center;
 }
 
+/* 1. ATURAN UNTUK HP (Layar Kecil) */
 .modal-carousel img {
-    /* 1. LEBAR UNTUK HP (PENTING!) */
-    width: 78vw;           /* Dari 85vw turun ke 78vw agar ada celah di samping */
-    
-    /* 2. LEBAR UNTUK IPAD/TABLET */
-    max-width: 480px;      /* Tetap besar agar teks terbaca jelas */
-    
-    aspect-ratio: 1 / 1;   /* Tetap kotak seragam */
-    object-fit: contain;   /* Gambar utuh tidak terpotong */
+    width: 70vw;           /* Di HP, kita buat lebih ramping agar sampingnya kelihatan */
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
     background: #ffffff;
-    
-    /* 3. PADDING MINIM AGAR GAMBAR TETAP BESAR */
-    padding: 8px;          /* Padding tipis agar gambar testimoninya maksimal luasnya */
-    
+    padding: 10px;
     flex-shrink: 0;
     scroll-snap-align: center;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
+
+/* 2. KHUSUS UNTUK IPAD & LAYAR LEBAR (Tablet) */
+@media screen and (min-width: 768px) {
+    .modal-carousel img {
+        width: 450px;      /* Di iPad, pakai ukuran pixel tetap agar teks besar */
+        /* Kita tidak pakai 'vw' di iPad supaya 'intipan' sampingnya konsisten */
+    }
+}
+
+/* 3. JARAK ANTAR KOTAK */
+.modal-carousel {
+    display: flex;
+    gap: 15px;             /* Jarak antar kotak */
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 20px 15px;    /* Padding samping agar kotak pertama tidak nempel tembok */
+    -webkit-overflow-scrolling: touch;
+}
+
 
 /* 4. JARAK ANTAR GAMBAR */
 .modal-carousel {
