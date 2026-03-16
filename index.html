@@ -80,6 +80,7 @@
 
 
     <script>
+    // 1. Fungsi Filter Kategori
     function filterSelection(c) {
         var x = document.getElementsByClassName("art-item");
         if (c == "all") c = "";
@@ -91,6 +92,7 @@
         }
     }
 
+    // 2. Logika Lightbox Gambar & Video
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('full-image');
     const videoPlayer = document.getElementById('video-player');
@@ -101,44 +103,47 @@
     artItems.forEach(item => {
         item.addEventListener('click', () => {
             const img = item.querySelector('img');
+            
+            // Tampilkan Lightbox
             lightbox.style.display = 'flex';
             captionText.innerText = img.alt;
-            document.body.style.overflow = 'hidden';
+            document.body.style.overflow = 'hidden'; // Kunci scroll agar tidak lari
 
+            // CEK: Apakah ini item video?
             if (item.classList.contains('video-item')) {
-            const videoId = item.getAttribute('data-video-id');
-            // Pastikan formatnya persis seperti di bawah ini:
-            videoPlayer.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
-            videoPlayer.style.display = 'block';
-            lightboxImg.style.display = 'none';
-            }
-            else {
-                // Jika Gambar Biasa
+                const videoId = item.getAttribute('data-video-id');
+                // Menggunakan nocookie + parameter autoplay & modestbranding
+                videoPlayer.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
+                
+                videoPlayer.style.display = 'block'; // Munculkan video
+                lightboxImg.style.display = 'none';   // Sembunyikan gambar
+            } else {
+                // Jika gambar biasa
                 lightboxImg.src = img.src;
-                lightboxImg.style.display = 'block';
-                videoPlayer.style.display = 'none';
-                videoPlayer.src = ""; // Stop video jika ada
+                lightboxImg.style.display = 'block'; // Munculkan gambar
+                videoPlayer.style.display = 'none';  // Sembunyikan video
+                videoPlayer.src = "";                // Kosongkan src video
             }
         });
     });
 
+    // Fungsi Tutup (Universal)
     const closeLightbox = () => {
         lightbox.style.display = 'none';
-        document.body.style.overflow = 'auto';
-        videoPlayer.src = ""; // Penting: Agar suara video berhenti saat ditutup
+        document.body.style.overflow = 'auto'; // Aktifkan scroll kembali
+        videoPlayer.src = ""; // PENTING: Matikan video & suara saat ditutup
     };
 
     closeBtn.addEventListener('click', closeLightbox);
-    
+
+    // Klik di area hitam (luar konten) untuk menutup
     lightbox.addEventListener('click', (e) => {
+        // Jika yang diklik adalah background (bukan gambar/video/caption)
         if (e.target === lightbox || e.target.id === "caption") {
             closeLightbox();
         }
     });
 </script>
-
-
-
 
 
 
