@@ -1,17 +1,17 @@
-/* --- REVISI PROFIL MINIMALIS --- */
+/* --- REVISI FOTO PROFIL LEBIH KECIL & LEBIH ATAS --- */
 
 .about-container { 
     display: flex; 
-    align-items: center; 
+    align-items: flex-start; /* Mengubah dari center ke flex-start agar konten lebih ke atas */
     justify-content: center; 
-    gap: 100px; /* Jarak lebih lebar agar terasa 'airy' / lega */
-    padding: 120px 10%; 
-    min-height: 75vh;
+    gap: 60px;               /* Jarak antar foto dan teks sedikit dirapatkan */
+    padding: 80px 10% 40px;  /* Padding atas dikurangi agar lebih naik */
+    min-height: 60vh;
 }
 
-/* Mengecilkan ukuran foto agar serasi dengan teks */
 .about-image { 
-    flex: 0 0 280px; /* Foto dikunci di ukuran 280px, tidak membesar liar */
+    flex: 0 0 220px;         /* Ukuran foto dikecilkan (dari 260px ke 220px) */
+    margin-top: 10px;        /* Penyesuaian halus agar sejajar dengan baris pertama teks */
 }
 
 .about-image img { 
@@ -20,55 +20,26 @@
     object-fit: cover; 
     border-radius: 50%; 
     display: block; 
-    filter: grayscale(20%); /* Sentuhan minimalis agar warna tidak terlalu mencolok */
-    border: 1px solid #f0f0f0; 
+    border: 1px solid #eee;
 }
 
-/* Menyesuaikan konten teks */
-.about-content { 
-    flex: 1; 
-    max-width: 450px; 
-}
-
-.about-content h1 { 
-    font-size: 1.8rem; /* Sedikit lebih kecil agar elegan */
-    font-weight: 300; 
-    margin-bottom: 25px; 
-    line-height: 1.3;
-    letter-spacing: 1px;
-    text-transform: uppercase; /* Menambah kesan visual storyteller profesional */
-}
-
-.about-content p { 
-    font-size: 0.95rem; /* Ukuran teks lebih minimalis */
-    color: #555; 
-    line-height: 1.8; 
-    margin-bottom: 20px;
-    text-align: justify; /* Terlihat lebih rapi seperti buku/majalah */
-}
-
-/* Responsive untuk HP */
+/* Responsif untuk HP */
 @media (max-width: 900px) {
     .about-container { 
         flex-direction: column; 
         text-align: center; 
+        align-items: center; /* Di HP tetap rata tengah */
         gap: 30px; 
-        padding: 60px 8%; 
+        padding: 40px 8%;    /* Padding atas di HP juga dibuat lebih kecil */
     }
 
-    .about-image {
-        margin: 0 auto; 
-        max-width: 180px; /* Di HP buat lebih kecil lagi agar proporsional */
-    }
-
-    .about-content h1 {
-        font-size: 1.5rem;
-    }
-    
-    .about-content p {
-        text-align: center; /* Di HP kembali ke rata tengah */
+    .about-image { 
+        flex: 0 0 auto;
+        max-width: 150px;    /* Di HP foto dibuat lebih mungil (150px) */
+        margin: 0 auto;
     }
 }
+
 
 .email-btn { 
     display: inline-block; 
