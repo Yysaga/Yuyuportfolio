@@ -92,15 +92,6 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
     display: flex;
 }
 
-.lightbox-content {
-    /* Menggunakan 100% lebar dan 90% tinggi */
-    max-width: 100vw;
-    max-height: 90vh; 
-    object-fit: contain;
-    cursor: default;
-    /* Memberi sedikit napas agar tidak menempel ke pinggir layar */
-    padding: 0 10px; 
-}
 
 /* Caption super minimalis */
 #caption {
@@ -170,6 +161,50 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
     align-items: center;
     cursor: pointer; /* Memberi tanda kalau area hitam ini bisa diklik */
 }
+
+/* 1. ATURAN UMUM UNTUK GAMBAR DI LIGHTBOX */
+.lightbox-content {
+    /* Gunakan 92% lebar layar agar hampir penuh tapi tidak mentok tembok */
+    width: 92vw; 
+    max-width: 1000px; /* Batas maksimal di layar besar/desktop */
+    
+    /* Otomatis tinggi mengikuti proporsi gambar */
+    height: auto;
+    max-height: 85vh; /* Jangan sampai melebihi tinggi layar agar caption tetap kelihatan */
+    
+    object-fit: contain;
+    display: none;
+    border-radius: 8px; /* Sedikit tumpul agar elegan */
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease;
+}
+
+/* 2. KHUSUS UNTUK VIDEO PLAYER */
+#video-player {
+    width: 92vw;
+    max-width: 800px;
+    aspect-ratio: 16 / 9; /* Standar YouTube */
+    border: none;
+    display: none;
+}
+
+/* 3. KHUSUS UNTUK GAMBAR FULL */
+#full-image {
+    /* Sama dengan lightbox-content tapi kita pertegas */
+    width: 92vw;
+    max-height: 80vh;
+}
+
+/* 4. ATURAN UNTUK CAPTION (TEKS DI BAWAH) */
+#caption {
+    width: 90%;
+    text-align: center;
+    color: #ccc;
+    font-size: 14px;
+    margin-top: 15px;
+    font-family: sans-serif;
+}
+
 
 /* Supaya gambar/video tidak ikut ter-klik tutup */
 .lightbox-content {
