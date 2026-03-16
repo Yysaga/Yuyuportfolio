@@ -147,69 +147,47 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
     }
 }
 
-/* 1. LATAR BELAKANG (FULL HITAM PEKAT) */
+/* --- KEMBALIKAN LIGHTBOX KE SETTING STABIL --- */
+
 .lightbox {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw; 
-    height: 100vh;
-    background-color: #000000; /* Hitam total seperti galeri HP */
-    z-index: 99999;
-    
-    /* Center semuanya */
     display: none; 
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-    padding: 0; /* HAPUS SEMUA PADDING */
-    margin: 0;
+    position: fixed; 
+    z-index: 99999; 
+    top: 0; left: 0; 
+    width: 100vw; 
+    height: 100vh; 
+    background-color: #000; /* Hitam pekat */
+    flex-direction: column; 
+    align-items: center;    
+    justify-content: center; 
+    cursor: zoom-out;
 }
 
-/* 2. GAMBAR & VIDEO (MENTOK TOTAL) */
+/* Gambar & Video: Penuhi layar tapi beri ruang sedikit untuk teks di bawah */
 .lightbox-content, #full-image, #video-player {
-    /* Gunakan 100% agar menyentuh pinggiran layar */
-    width: 100vw; 
-    height: auto;
-    max-height: 100vh; /* Mentok atas bawah */
-    
-    /* HAPUS SEMUA JARAK & BORDER */
-    margin: 0;
-    padding: 0;
+    width: auto;
+    max-width: 96vw;     /* Mentok kiri kanan sisain dikit */
+    max-height: 82vh;    /* Beri ruang di bawah (18vh) agar teks tidak tenggelam */
+    margin: 0 auto;
+    display: block;
+    object-fit: contain;
     border: none !important;
     border-radius: 0 !important;
-    outline: none;
-    
-    /* Gambar tetap proporsional tapi seluas mungkin */
-    object-fit: contain; 
-    
-    box-shadow: none; /* Hapus bayangan agar tidak ada sisa cahaya di pinggir */
 }
 
-/* 3. TOMBOL TUTUP (X) - Agar tidak menutupi gambar */
-.close {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    color: rgba(255, 255, 255, 0.7); /* Buat agak transparan agar minimalis */
-    font-size: 35px;
-    z-index: 100001;
-    text-shadow: 0 0 10px rgba(0,0,0,0.5); /* Supaya tetap kelihatan di gambar putih */
-}
-
-/* 4. CAPTION (Sembunyikan atau buat melayang tipis) */
+/* Caption: Kembali ke posisi normal di bawah gambar */
 #caption {
-    position: absolute;
-    bottom: 20px;
-    width: 100%;
-    text-align: center;
+    margin-top: 20px;    /* Jarak dari gambar ke teks */
     color: #fff;
-    font-size: 13px;
-    z-index: 100001;
-    background: linear-gradient(transparent, rgba(0,0,0,0.5)); /* Gradasi halus di bawah teks */
-    padding: 20px 0;
+    font-size: 0.75rem; 
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    width: 90%;
+    opacity: 0.8;
 }
+
 
 
 /* Supaya gambar/video tidak ikut ter-klik tutup */
