@@ -29,6 +29,9 @@
         <button onclick="filterSelection('aiart')">Ai generative art</button>
     </div>
 
+<div id="filter-description" class="filter-desc-container"></div>
+
+
     <main class="gallery">
         <div class="art-item illustration"><img src="Illu1.PNG" alt="Millitary deer on the car. illustration for clients"></div>
         <div class="art-item illustration"><img src="Illu2.PNG" alt="Millitary illustration for client"></div>
@@ -94,11 +97,22 @@
 
 
     <script>
-    // --- 1. FUNGSI FILTER GALERI ---
+    // --- 1. FUNGSI FILTER GALERI & TEKS DESKRIPSI ---
     function filterSelection(c) {
         const items = document.getElementsByClassName("art-item");
+        const descContainer = document.getElementById("filter-description");
+
         if (c === "all") c = "";
         
+        // Logika Teks Penjelasan AI
+        if (c === "aiart") {
+            descContainer.innerHTML = "<p>Seiring dengan perkembangan teknologi, saya menggunakan AI sebagai alat bantu untuk mengeksplorasi kreativitas dan menciptakan visual yang inovatif.</p>";
+            descContainer.style.display = "block";
+        } else {
+            descContainer.innerHTML = "";
+            descContainer.style.display = "none";
+        }
+
         for (let i = 0; i < items.length; i++) {
             // Sembunyikan semua item
             items[i].style.display = "none";
@@ -110,12 +124,12 @@
         }
 
         // Mengatur status 'active' pada tombol filter
-        const btnContainer = document.querySelector(".filter-container");
+        const btnContainer = document.querySelector(".filter-buttons");
         if (btnContainer) {
-            const btns = btnContainer.getElementsByClassName("btn");
+            const btns = btnContainer.getElementsByTagName("button");
             for (let i = 0; i < btns.length; i++) {
                 btns[i].addEventListener("click", function() {
-                    const current = document.getElementsByClassName("active");
+                    const current = btnContainer.getElementsByClassName("active");
                     if (current.length > 0) { 
                         current[0].className = current[0].className.replace(" active", ""); 
                     }
@@ -165,7 +179,7 @@
     });
 
 
-    // --- 3. FUNGSI TUTUP (SANGAT STABIL) ---
+    // --- 3. FUNGSI TUTUP ---
     function closeLightbox() {
         lightbox.style.display = 'none';
         document.body.style.overflow = 'auto'; // Aktifkan kembali scroll
@@ -186,13 +200,12 @@
 
     // Klik Area Hitam (Background) untuk Tutup
     lightbox.addEventListener('click', function(e) {
-        // PENTING: Hanya tutup jika yang diklik adalah background (lightbox)
-        // Bukan gambarnya, videonya, atau teksnya.
         if (e.target === lightbox) {
             closeLightbox();
         }
     });
 </script>
+
 
 
 
