@@ -179,22 +179,34 @@
 }
 
 .modal-carousel img {
-    /* Perbesar sedikit ukurannya agar teks lebih terbaca */
-    width: 85vw;           /* Dari 75vw naik ke 85vw agar lebih lebar di HP */
-    max-width: 500px;      /* Dari 400px naik ke 500px agar lebih besar di iPad/Tablet */
+    /* 1. LEBAR UNTUK HP (PENTING!) */
+    width: 78vw;           /* Dari 85vw turun ke 78vw agar ada celah di samping */
     
-    aspect-ratio: 1 / 1;   /* Tetap kotak sempurna */
-    object-fit: contain;   /* Tetap utuh tidak terpotong */
+    /* 2. LEBAR UNTUK IPAD/TABLET */
+    max-width: 480px;      /* Tetap besar agar teks terbaca jelas */
+    
+    aspect-ratio: 1 / 1;   /* Tetap kotak seragam */
+    object-fit: contain;   /* Gambar utuh tidak terpotong */
     background: #ffffff;
     
-    /* Kurangi sedikit padding agar gambar testimoninya punya ruang lebih luas */
-    padding: 10px;         /* Dari 20px turun ke 10px agar gambar lebih 'mentok' ke pinggir */
+    /* 3. PADDING MINIM AGAR GAMBAR TETAP BESAR */
+    padding: 8px;          /* Padding tipis agar gambar testimoninya maksimal luasnya */
     
-    border-radius: 15px;
     flex-shrink: 0;
     scroll-snap-align: center;
+    border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
+
+/* 4. JARAK ANTAR GAMBAR */
+.modal-carousel {
+    display: flex;
+    gap: 15px;             /* Beri jarak antar kotak agar terlihat terpisah saat mengintip */
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 20px;         /* Ruang agar bayangan (shadow) tidak terpotong */
+}
+
 
 
 
