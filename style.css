@@ -155,3 +155,28 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
         padding: 0 20px !important;
     }
 }
+
+#video-player {
+    aspect-ratio: 16 / 9;
+    max-width: 90vw;
+    max-height: 80vh;
+}
+
+/* Beri icon play kecil di thumbnail video agar orang tahu itu video */
+.video-item {
+    position: relative;
+}
+.video-item::after {
+    content: '▶';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2rem;
+    background: rgba(0,0,0,0.4);
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    pointer-events: none;
+}
+
