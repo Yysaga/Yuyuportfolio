@@ -203,3 +203,69 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
     margin-top: 15px;
     text-align: center;
 }
+
+/* --- CSS UNTUK LOGO PLAY PADA VIDEO --- */
+
+/* Buat wadah gambarnya menjadi referensi posisi */
+.video-thumbnail {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 8px; /* Biar ujungnya sedikit tumpul seperti gambar sebelahnya */
+}
+
+/* Gambar asli (monyet) */
+.video-thumbnail img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease; /* Untuk efek hover nanti */
+}
+
+/* Buat lapisan bayangan gelap (overlay) di atas gambar agar logo terlihat jelas */
+.video-thumbnail::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Bayangan hitam tipis */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+/* Tampilkan bayangan saat pointer mouse mendekat (hover) */
+.video-thumbnail:hover::before {
+    opacity: 1;
+}
+
+/* Buat Segitiga Logo Play Menggunakan Trik CSS Border */
+.video-thumbnail::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%); /* Pastikan benar-benar di tengah */
+    
+    /* Ukuran Segitiga */
+    width: 0; height: 0;
+    border-style: solid;
+    border-width: 25px 0 25px 40px; /* Atas, Kanan, Bawah, Kiri */
+    border-color: transparent transparent transparent rgba(255, 255, 255, 0.9); /* Segitiga Putih */
+    
+    opacity: 0.8; /* Sedikit transparan */
+    transition: all 0.3s ease;
+    z-index: 2;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5)); /* Beri sedikit bayangan agar timbul */
+}
+
+/* Efek saat pointer mouse mendekat (hover): Logo membesar sedikit */
+.video-thumbnail:hover::after {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* Efek zoom tipis pada gambarnya saat di-hover */
+.video-thumbnail:hover img {
+    transform: scale(1.03);
+}
+
