@@ -1,64 +1,19 @@
-/* --- REVISI ABOUT: IDENTIK DENGAN INDEX & FOTO MINIMALIS --- */
+/* about.css - Hanya untuk halaman profil */
 
 .about-container { 
     display: flex; 
-    align-items: flex-start; /* Naikkan posisi ke atas */
+    align-items: center; 
     justify-content: center; 
-    gap: 70px; 
-    padding: 60px 10% 40px;  /* Kurangi padding atas agar lebih naik */
-    min-height: 60vh;
+    gap: 80px; 
+    padding: 100px 10%; 
+    min-height: 70vh;
 }
 
-/* Foto Profil: Lebih kecil dan sejajar teks */
-.about-image { 
-    flex: 0 0 200px;         /* Ukuran foto diperkecil menjadi 200px saja */
-    margin-top: 15px;        /* Agar sejajar dengan baris pertama teks nama */
-}
-
-.about-image img { 
-    width: 100%; 
-    aspect-ratio: 1 / 1; 
-    object-fit: cover; 
-    border-radius: 50%; 
-    display: block; 
-    border: 1px solid #eee;
-}
-
-/* Konten Teks */
-.about-content { 
-    flex: 1; 
-    max-width: 480px; 
-}
-
-/* --- KEMBALIKAN TEKS KE GAYA MINIMALIS YANG RAPI --- */
-
-.about-content h1 { 
-    font-size: 1.5rem;       /* Ukuran yang pas, tidak kekecilan */
-    font-weight: 600;        /* Sedikit tegas agar terlihat profesional */
-    letter-spacing: 0.5px;   /* Spasi normal agar enak dibaca */
-    text-transform: none;    /* Kembali ke huruf normal (bukan kapital semua) */
-    margin-bottom: 20px; 
-    line-height: 1.2;
-    color: #111;
-}
-
-.about-content p { 
-    font-size: 1rem;         /* Ukuran standar yang nyaman di mata */
-    color: #444;             /* Warna abu gelap yang bersih */
-    line-height: 1.8;        /* Jarak antar baris yang lega */
-    margin-bottom: 20px;
-    letter-spacing: 0;       /* Hapus spasi antar huruf yang aneh tadi */
-}
-
-/* Responsif untuk HP agar tetap rapi */
-@media (max-width: 900px) {
-    .about-content h1 {
-        font-size: 1.3rem;
-    }
-    .about-content p {
-        font-size: 0.95rem;
-    }
-}
+.about-image { flex: 1; max-width: 400px; }
+.about-image img { width: 100%; border-radius: 4px; display: block; }
+.about-content { flex: 1; max-width: 500px; }
+.about-content h1 { font-size: 2rem; font-weight: 300; margin-bottom: 30px; line-height: 1.2; }
+.about-content p { font-size: 1rem; color: #666; line-height: 1.8; margin-bottom: 20px; }
 
 
 .email-btn { 
