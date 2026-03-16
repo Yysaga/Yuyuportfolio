@@ -147,62 +147,68 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
     }
 }
 
-/* LIGHTBOX UTAMA */
-
+/* 1. LATAR BELAKANG (FULL HITAM PEKAT) */
 .lightbox {
     display: none;
     position: fixed;
     top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.95); /* Pastikan hitamnya full */
-    z-index: 10000;
+    width: 100vw; 
+    height: 100vh;
+    background-color: #000000; /* Hitam total seperti galeri HP */
+    z-index: 99999;
+    
+    /* Center semuanya */
+    display: none; 
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    cursor: pointer; /* Memberi tanda kalau area hitam ini bisa diklik */
+    
+    padding: 0; /* HAPUS SEMUA PADDING */
+    margin: 0;
 }
 
-/* 1. ATURAN GAMBAR & VIDEO (MENTOK TAPI SISAKAN SEDIKIT) */
-.lightbox-content {
-    /* Gunakan 96% agar hampir menyentuh pinggiran HP */
-    width: 96vw; 
-    max-width: 100%; /* Hilangkan batasan di layar besar agar bebas membesar */
+/* 2. GAMBAR & VIDEO (MENTOK TOTAL) */
+.lightbox-content, #full-image, #video-player {
+    /* Gunakan 100% agar menyentuh pinggiran layar */
+    width: 100vw; 
+    height: auto;
+    max-height: 100vh; /* Mentok atas bawah */
     
-    /* Tinggi maksimal agar tidak menabrak atas/bawah */
-    max-height: 85vh; 
-    
-    /* HAPUS BORDER & RADIUS */
-    border: none !important;
-    border-radius: 0 !important; 
-    
-    object-fit: contain;
-    display: none;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5); /* Bayangan tipis saja agar terlihat timbul */
-}
-
-/* 2. KHUSUS VIDEO PLAYER */
-#video-player {
-    width: 96vw;
-    aspect-ratio: 16 / 9;
+    /* HAPUS SEMUA JARAK & BORDER */
+    margin: 0;
+    padding: 0;
     border: none !important;
     border-radius: 0 !important;
-    display: none;
+    outline: none;
+    
+    /* Gambar tetap proporsional tapi seluas mungkin */
+    object-fit: contain; 
+    
+    box-shadow: none; /* Hapus bayangan agar tidak ada sisa cahaya di pinggir */
 }
 
-/* 3. KHUSUS GAMBAR FULL */
-#full-image {
-    width: 96vw;
-    max-height: 88vh; /* Sedikit lebih tinggi untuk gambar vertikal */
+/* 3. TOMBOL TUTUP (X) - Agar tidak menutupi gambar */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: rgba(255, 255, 255, 0.7); /* Buat agak transparan agar minimalis */
+    font-size: 35px;
+    z-index: 100001;
+    text-shadow: 0 0 10px rgba(0,0,0,0.5); /* Supaya tetap kelihatan di gambar putih */
 }
 
-/* 4. PENYESUAIAN CAPTION */
+/* 4. CAPTION (Sembunyikan atau buat melayang tipis) */
 #caption {
-    width: 96%;
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
     text-align: center;
-    color: #ffffff; /* Putihkan sedikit agar kontras di layar hitam */
+    color: #fff;
     font-size: 13px;
-    margin-top: 10px;
-    letter-spacing: 0.5px;
+    z-index: 100001;
+    background: linear-gradient(transparent, rgba(0,0,0,0.5)); /* Gradasi halus di bawah teks */
+    padding: 20px 0;
 }
 
 
