@@ -39,6 +39,9 @@
         <div class="art-item illustration"><img src="Illu7.jpg" alt="Vector landscape"></div>
         <div class="art-item illustration"><img src="Illu8.png" alt="2d cat illustration"></div>
         <div class="art-item illustration"><img src="Illu9.jpg" alt="coloring illustration"></div>
+        <div class="art-item illustration video-item" data-video-id="ID_VIDEO_KAMU">
+        <img src="https://img.youtube.com/vi/ID_VIDEO_KAMU/maxresdefault.jpg" alt="Judul Video YouTube Kamu"></div>
+
         <div class="art-item comic"><img src="Illu10.jpg" alt=""></div>
         <div class="art-item comics"><img src="Illu11.jpg" alt="Komik 1"></div>
         <div class="art-item comics"><img src="Illu12.jpg" alt="Komik 2"></div>
@@ -77,7 +80,6 @@
 
 
     <script>
-    // 1. Fungsi Filter (Untuk kategori)
     function filterSelection(c) {
         var x = document.getElementsByClassName("art-item");
         if (c == "all") c = "";
@@ -89,41 +91,51 @@
         }
     }
 
-    // 2. Logika Lightbox
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('full-image');
+    const videoPlayer = document.getElementById('video-player');
     const captionText = document.getElementById('caption');
-    const images = document.querySelectorAll('.art-item img');
+    const artItems = document.querySelectorAll('.art-item');
     const closeBtn = document.querySelector('.close');
 
-    // Sembunyikan lightbox saat pertama kali load
-    lightbox.style.display = 'none';
+    artItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const img = item.querySelector('img');
+            lightbox.style.display = 'flex';
+            captionText.innerText = img.alt;
+            document.body.style.overflow = 'hidden';
 
-    // Event buka lightbox
-    images.forEach(img => {
-        img.addEventListener('click', () => {
-            lightbox.style.display = 'flex'; // Munculkan
-            lightboxImg.src = img.src;       // Ambil gambar
-            captionText.innerText = img.alt; // Ambil teks dari alt
-            document.body.style.overflow = 'hidden'; // Kunci scroll
+            if (item.classList.contains('video-item')) {
+                // Jika Video
+                const videoId = item.getAttribute('data-video-id');
+                videoPlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                videoPlayer.style.display = 'block';
+                lightboxImg.style.display = 'none';
+            } else {
+                // Jika Gambar Biasa
+                lightboxImg.src = img.src;
+                lightboxImg.style.display = 'block';
+                videoPlayer.style.display = 'none';
+                videoPlayer.src = ""; // Stop video jika ada
+            }
         });
     });
 
-    // Fungsi tutup
     const closeLightbox = () => {
-        lightbox.style.display = 'none'; // Sembunyikan
-        document.body.style.overflow = 'auto'; // Aktifkan scroll
+        lightbox.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        videoPlayer.src = ""; // Penting: Agar suara video berhenti saat ditutup
     };
 
     closeBtn.addEventListener('click', closeLightbox);
-
-    // Klik di luar gambar untuk tutup
+    
     lightbox.addEventListener('click', (e) => {
-        if (e.target !== lightboxImg && e.target !== captionText) {
+        if (e.target === lightbox || e.target.id === "caption") {
             closeLightbox();
         }
     });
 </script>
+
 
 
 
@@ -140,5 +152,13 @@
           <p class="copyright">&copy; Yuyu 2026. All rights reserved.</p>
         </div>
     </footer>
+
+    <div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-content" id="full-image" alt="Full Image">
+    <iframe id="video-player" class="lightbox-content" width="100%" height="auto" src="" frameborder="0" allowfullscreen style="display:none; border:none;"></iframe>
+    <p id="caption"></p>
+</div>
+
 </body>
 </html>
