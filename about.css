@@ -1,17 +1,18 @@
-/* --- REVISI FOTO PROFIL LEBIH KECIL & LEBIH ATAS --- */
+/* --- REVISI ABOUT: IDENTIK DENGAN INDEX & FOTO MINIMALIS --- */
 
 .about-container { 
     display: flex; 
-    align-items: flex-start; /* Mengubah dari center ke flex-start agar konten lebih ke atas */
+    align-items: flex-start; /* Naikkan posisi ke atas */
     justify-content: center; 
-    gap: 60px;               /* Jarak antar foto dan teks sedikit dirapatkan */
-    padding: 80px 10% 40px;  /* Padding atas dikurangi agar lebih naik */
+    gap: 70px; 
+    padding: 60px 10% 40px;  /* Kurangi padding atas agar lebih naik */
     min-height: 60vh;
 }
 
+/* Foto Profil: Lebih kecil dan sejajar teks */
 .about-image { 
-    flex: 0 0 220px;         /* Ukuran foto dikecilkan (dari 260px ke 220px) */
-    margin-top: 10px;        /* Penyesuaian halus agar sejajar dengan baris pertama teks */
+    flex: 0 0 200px;         /* Ukuran foto diperkecil menjadi 200px saja */
+    margin-top: 15px;        /* Agar sejajar dengan baris pertama teks nama */
 }
 
 .about-image img { 
@@ -23,23 +24,53 @@
     border: 1px solid #eee;
 }
 
+/* Konten Teks */
+.about-content { 
+    flex: 1; 
+    max-width: 480px; 
+}
+
+/* Nama Yuyu: Samakan persis dengan .main-title h1 di Index */
+.about-content h1 { 
+    font-size: 1.2rem;       /* Sama dengan index */
+    font-weight: 300;        /* Sama dengan index (Thin/Light) */
+    letter-spacing: 6px;     /* Sama dengan index (Kunci kemiripan) */
+    text-transform: uppercase; 
+    margin-bottom: 30px; 
+    line-height: 1.4;
+    color: #111;
+}
+
+/* Paragraf: Samakan dengan gaya footer/about-desc agar serasi */
+.about-content p { 
+    font-size: 0.85rem;      /* Sama dengan .about-desc di index */
+    color: #666;             /* Sama dengan .about-desc di index */
+    line-height: 1.8; 
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+
 /* Responsif untuk HP */
 @media (max-width: 900px) {
     .about-container { 
         flex-direction: column; 
         text-align: center; 
-        align-items: center; /* Di HP tetap rata tengah */
+        align-items: center; 
         gap: 30px; 
-        padding: 40px 8%;    /* Padding atas di HP juga dibuat lebih kecil */
+        padding: 40px 8%; 
     }
 
     .about-image { 
         flex: 0 0 auto;
-        max-width: 150px;    /* Di HP foto dibuat lebih mungil (150px) */
+        max-width: 140px;    /* Di HP buat foto lebih mungil lagi */
         margin: 0 auto;
     }
-}
 
+    .about-content h1 {
+        font-size: 1.1rem;   /* Sedikit menyesuaikan di HP */
+        letter-spacing: 4px; /* Kurangi sedikit spasi agar tidak pecah di layar kecil */
+    }
+}
 
 .email-btn { 
     display: inline-block; 
