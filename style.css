@@ -157,17 +157,25 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
 }
 
 /* LIGHTBOX UTAMA */
+
 .lightbox {
-    display: none; /* Awalnya sembunyi */
+    display: none;
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    z-index: 9999;
+    background: rgba(0, 0, 0, 0.95); /* Pastikan hitamnya full */
+    z-index: 10000;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    cursor: pointer; /* Memberi tanda kalau area hitam ini bisa diklik */
 }
+
+/* Supaya gambar/video tidak ikut ter-klik tutup */
+.lightbox-content {
+    cursor: default; 
+}
+
 
 /* VIDEO PLAYER */
 #video-player {
