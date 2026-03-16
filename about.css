@@ -147,58 +147,63 @@
     .about-content { max-width: 100%; }
 }
 
-/* --- MODAL TESTIMONIAL DINAMIK --- */
+/* --- MODAL TESTIMONIAL FINAL (HP & IPAD) --- */
 .modal {
     display: none;
     position: fixed;
-    z-index: 9999;
+    z-index: 10000;
     left: 0; top: 0;
-    width: 100vw; 
-    height: 100vh;
+    width: 100%; 
+    height: 100%;
     background-color: rgba(0,0,0,0.95);
     align-items: center;
     justify-content: center;
+    /* Mencegah seluruh halaman ikut geser saat carousel di-swipe */
+    touch-action: none; 
 }
 
-.modal.active { display: flex; }
+.modal.active { 
+    display: flex; 
+}
 
 .modal-carousel {
     display: flex;
     overflow-x: auto;
-    gap: 15px;
-    padding: 20px;
-    width: 100%;       /* Memenuhi lebar */
-    max-width: 600px;  /* Batas maksimal agar tidak kebesaran di iPad/PC */
+    /* Memberi jarak antar gambar */
+    gap: 30px; 
+    /* Padding kiri-kanan penting agar gambar pertama/terakhir bisa di tengah */
+    padding: 0 10%; 
+    width: 100%;
     scroll-snap-type: x mandatory;
-    scrollbar-width: none; 
     -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    /* Mengaktifkan kembali sentuhan hanya untuk area geser */
+    touch-action: pan-x; 
 }
 
 .modal-carousel::-webkit-scrollbar { display: none; }
 
 .modal-carousel img {
-    /* INI KUNCI DINAMIKNYA */
-    width: 85vw;       /* Gambar ambil 85% lebar layar HP/iPad */
-    max-width: 450px;  /* Tapi jangan lebih lebar dari 450px di layar besar */
-    height: auto;      /* Tinggi mengikuti proporsi gambar asli */
-    max-height: 70vh;  /* Agar tidak melebihi tinggi layar */
+    /* Ukuran Dinamik */
+    width: 80vw;         /* Di HP akan terlihat 80% layar */
+    max-width: 500px;    /* Di iPad tidak akan kebesaran */
+    height: auto;
+    max-height: 60vh;    /* Biar tidak 'balapan' sama tinggi layar HP */
+    
     object-fit: contain;
+    flex-shrink: 0;      /* WAJIB: Biar gambar gak gepeng/ciut */
+    scroll-snap-align: center;
     border-radius: 12px;
-    flex-shrink: 0;    /* Mencegah gambar menyusut/gepeng */
-    scroll-snap-align: center; /* Gambar otomatis 'snap' ke tengah */
-    background: #fff;  /* Opsional: background putih jika screenshot testi transparan */
+    background: #fff;    /* Opsional: Biar testi lebih jelas terbaca */
 }
 
-/* Tombol Tutup yang lebih mudah ditekan di HP */
+/* Tombol Tutup di HP */
 .close-modal {
     position: absolute;
-    top: 30px; 
-    right: 30px;
+    top: 20px; 
+    right: 25px;
     color: #fff;
-    font-size: 40px;
+    font-size: 35px;
     cursor: pointer;
     z-index: 10001;
-    line-height: 1;
 }
-
-
