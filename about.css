@@ -30,47 +30,36 @@
     max-width: 480px; 
 }
 
-/* Nama Yuyu: Samakan persis dengan .main-title h1 di Index */
+/* --- KEMBALIKAN TEKS KE GAYA MINIMALIS YANG RAPI --- */
+
 .about-content h1 { 
-    font-size: 1.2rem;       /* Sama dengan index */
-    font-weight: 300;        /* Sama dengan index (Thin/Light) */
-    letter-spacing: 6px;     /* Sama dengan index (Kunci kemiripan) */
-    text-transform: uppercase; 
-    margin-bottom: 30px; 
-    line-height: 1.4;
+    font-size: 1.5rem;       /* Ukuran yang pas, tidak kekecilan */
+    font-weight: 600;        /* Sedikit tegas agar terlihat profesional */
+    letter-spacing: 0.5px;   /* Spasi normal agar enak dibaca */
+    text-transform: none;    /* Kembali ke huruf normal (bukan kapital semua) */
+    margin-bottom: 20px; 
+    line-height: 1.2;
     color: #111;
 }
 
-/* Paragraf: Samakan dengan gaya footer/about-desc agar serasi */
 .about-content p { 
-    font-size: 0.85rem;      /* Sama dengan .about-desc di index */
-    color: #666;             /* Sama dengan .about-desc di index */
-    line-height: 1.8; 
+    font-size: 1rem;         /* Ukuran standar yang nyaman di mata */
+    color: #444;             /* Warna abu gelap yang bersih */
+    line-height: 1.8;        /* Jarak antar baris yang lega */
     margin-bottom: 20px;
-    letter-spacing: 0.5px;
+    letter-spacing: 0;       /* Hapus spasi antar huruf yang aneh tadi */
 }
 
-/* Responsif untuk HP */
+/* Responsif untuk HP agar tetap rapi */
 @media (max-width: 900px) {
-    .about-container { 
-        flex-direction: column; 
-        text-align: center; 
-        align-items: center; 
-        gap: 30px; 
-        padding: 40px 8%; 
-    }
-
-    .about-image { 
-        flex: 0 0 auto;
-        max-width: 140px;    /* Di HP buat foto lebih mungil lagi */
-        margin: 0 auto;
-    }
-
     .about-content h1 {
-        font-size: 1.1rem;   /* Sedikit menyesuaikan di HP */
-        letter-spacing: 4px; /* Kurangi sedikit spasi agar tidak pecah di layar kecil */
+        font-size: 1.3rem;
+    }
+    .about-content p {
+        font-size: 0.95rem;
     }
 }
+
 
 .email-btn { 
     display: inline-block; 
