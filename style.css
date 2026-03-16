@@ -180,3 +180,10 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
     pointer-events: none;
 }
 
+#video-player {
+    z-index: 100001; /* Pastikan lebih tinggi dari lightbox-nya */
+    display: block;
+    margin: 0 auto;
+}
+
+
