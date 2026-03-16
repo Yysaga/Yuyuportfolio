@@ -94,6 +94,40 @@
 
 
     <script>
+    // --- 1. FUNGSI FILTER (AGAR JALAN LAGI) ---
+    function filterSelection(c) {
+        var x = document.getElementsByClassName("art-item");
+        if (c == "all") c = "";
+        
+        for (var i = 0; i < x.length; i++) {
+            // Sembunyikan semua dulu
+            x[i].style.display = "none";
+            
+            // Tampilkan hanya yang sesuai kategori
+            if (x[i].className.indexOf(c) > -1) { 
+                x[i].style.display = "block"; 
+            }
+        }
+        
+        // Tambahkan class 'active' ke tombol yang diklik (opsional)
+        var btnContainer = document.querySelector(".filter-container"); // Ganti sesuai class container tombolmu
+        if(btnContainer) {
+            var btns = btnContainer.getElementsByClassName("btn");
+            for (var i = 0; i < btns.length; i++) {
+                btns[i].addEventListener("click", function() {
+                    var current = document.getElementsByClassName("active");
+                    if (current.length > 0) { current[0].className = current[0].className.replace(" active", ""); }
+                    this.className += " active";
+                });
+            }
+        }
+    }
+
+    // Jalankan filter 'all' saat pertama kali buka halaman
+    filterSelection("all");
+
+
+    // --- 2. LOGIKA LIGHTBOX (VIDEO & GAMBAR) ---
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('full-image');
     const videoPlayer = document.getElementById('video-player');
@@ -104,47 +138,40 @@
     artItems.forEach(item => {
         item.addEventListener('click', () => {
             const img = item.querySelector('img');
-            
             lightbox.style.display = 'flex';
             captionText.innerText = img.alt;
             document.body.style.overflow = 'hidden';
 
-            // CEK APAKAH VIDEO ATAU GAMBAR
             if (item.classList.contains('video-item')) {
                 const videoId = item.getAttribute('data-video-id');
-                
-                // Set link embed YouTube
                 videoPlayer.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
-                
-                // Tampilkan Video, Sembunyikan Gambar
                 videoPlayer.style.display = 'block';
                 lightboxImg.style.display = 'none';
             } else {
-                // Mode Gambar Biasa
                 lightboxImg.src = img.src;
                 lightboxImg.style.display = 'block';
                 videoPlayer.style.display = 'none';
-                videoPlayer.src = ""; // Matikan video
+                videoPlayer.src = ""; 
             }
         });
     });
 
-    // FUNGSI TUTUP
     function closeLightbox() {
         lightbox.style.display = 'none';
         document.body.style.overflow = 'auto';
-        videoPlayer.src = ""; // PENTING: Matikan suara video saat ditutup
+        videoPlayer.src = ""; 
+        videoPlayer.style.display = 'none';
+        lightboxImg.style.display = 'none';
     }
 
     closeBtn.onclick = closeLightbox;
-
-    // Tutup jika klik area hitam di luar gambar/video
     lightbox.onclick = function(e) {
-        if (e.target === lightbox) {
+        if (e.target === lightbox || e.target === captionText) {
             closeLightbox();
         }
     };
 </script>
+
 
 
 
