@@ -125,11 +125,11 @@
         }
     }
 
-    // Jalankan filter 'all' secara otomatis saat halaman pertama kali dimuat
+    // Jalankan filter 'all' saat pertama kali buka
     filterSelection("all");
 
 
-    // --- 2. LOGIKA LIGHTBOX (VIDEO & GAMBAR) ---
+    // --- 2. LOGIKA LIGHTBOX (GAMBAR & VIDEO) ---
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('full-image');
     const videoPlayer = document.getElementById('video-player');
@@ -141,63 +141,58 @@
         item.addEventListener('click', () => {
             const img = item.querySelector('img');
             
-            // Munculkan kontainer lightbox
+            // Munculkan background hitam (flex)
             lightbox.style.display = 'flex';
             captionText.innerText = img.alt;
-            document.body.style.overflow = 'hidden'; // Kunci scroll layar belakang
+            document.body.style.overflow = 'hidden'; // Kunci scroll layar utama
 
-            // CEK: Apakah yang diklik adalah video?
+            // CEK: Apakah video?
             if (item.classList.contains('video-item')) {
                 const videoId = item.getAttribute('data-video-id');
                 
-                // Masukkan link embed YouTube (autoplay aktif)
+                // Gunakan embed YouTube
                 videoPlayer.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
-                
-                // Tampilkan video, sembunyikan gambar
                 videoPlayer.style.display = 'block';
                 lightboxImg.style.display = 'none';
-                
-                console.log("Membuka Video ID: " + videoId);
             } else {
                 // Jika gambar biasa
                 lightboxImg.src = img.src;
-                
-                // Tampilkan gambar, sembunyi/kosongkan video
                 lightboxImg.style.display = 'block';
                 videoPlayer.style.display = 'none';
                 videoPlayer.src = ""; 
-                
-                console.log("Membuka Gambar");
             }
         });
     });
 
 
-    // --- 3. FUNGSI TUTUP LIGHTBOX ---
+    // --- 3. FUNGSI TUTUP (SANGAT STABIL) ---
     function closeLightbox() {
         lightbox.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Aktifkan kembali scroll layar
+        document.body.style.overflow = 'auto'; // Aktifkan kembali scroll
         
-        // RESET: Matikan video agar suara berhenti saat lightbox ditutup
+        // Reset Video (Matikan suara)
         videoPlayer.src = ""; 
         videoPlayer.style.display = 'none';
         lightboxImg.style.display = 'none';
     }
 
-    // Klik tombol X untuk tutup
+    // Klik Tombol X untuk Tutup
     if (closeBtn) {
-        closeBtn.onclick = closeLightbox;
+        closeBtn.onclick = function(e) {
+            e.stopPropagation();
+            closeLightbox();
+        };
     }
 
-    // Klik di area hitam (luar gambar/video) untuk tutup
-    window.onclick = function(event) {
-        if (event.target === lightbox) {
+    // Klik Area Hitam (Background) untuk Tutup
+    lightbox.addEventListener('click', function(e) {
+        // PENTING: Hanya tutup jika yang diklik adalah background (lightbox)
+        // Bukan gambarnya, videonya, atau teksnya.
+        if (e.target === lightbox) {
             closeLightbox();
         }
-    };
+    });
 </script>
-
-
 
 
 
