@@ -39,8 +39,26 @@
         <div class="art-item illustration"><img src="Illu7.jpg" alt="Vector landscape"></div>
         <div class="art-item illustration"><img src="Illu8.png" alt="2d cat illustration"></div>
         <div class="art-item illustration"><img src="Illu9.jpg" alt="coloring illustration"></div>
-        <div class="art-item illustration video-item" data-video-id="b1TmwaH5gNw">
-        <img src="https://img.youtube.com/vi/b1TmwaH5gNw/maxresdefault.jpg" alt="Judul Video YouTube Kamu"></div>
+        <div class="art-item illustration video-item" data-video-id="KODE_VIDEO_KAMU">
+    <img src="https://img.youtube.com/vi/KODE_VIDEO_KAMU/hqdefault.jpg" alt="Judul Video Cerita Visual">
+</div>
+
+<div class="art-item illustration">
+    <img src="gambar-kamu.jpg" alt="Deskripsi Gambar">
+</div>
+
+<div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    
+    <img class="lightbox-content" id="full-image" alt="Full Image">
+    
+    <iframe id="video-player" class="lightbox-content" src="" 
+            frameborder="0" allow="autoplay; encrypted-media; fullscreen" 
+            allowfullscreen></iframe>
+            
+    <p id="caption"></p>
+</div>
+
 
         <div class="art-item comic"><img src="Illu10.jpg" alt=""></div>
         <div class="art-item comics"><img src="Illu11.jpg" alt="Komik 1"></div>
@@ -80,19 +98,6 @@
 
 
     <script>
-    // 1. Fungsi Filter Kategori
-    function filterSelection(c) {
-        var x = document.getElementsByClassName("art-item");
-        if (c == "all") c = "";
-        for (var i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
-            if (x[i].className.indexOf(c) > -1) { 
-                x[i].style.display = "block"; 
-            }
-        }
-    }
-
-    // 2. Logika Lightbox Gambar & Video
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('full-image');
     const videoPlayer = document.getElementById('video-player');
@@ -104,46 +109,47 @@
         item.addEventListener('click', () => {
             const img = item.querySelector('img');
             
-            // Tampilkan Lightbox
             lightbox.style.display = 'flex';
             captionText.innerText = img.alt;
-            document.body.style.overflow = 'hidden'; // Kunci scroll agar tidak lari
+            document.body.style.overflow = 'hidden';
 
-            // CEK: Apakah ini item video?
+            // CEK APAKAH VIDEO ATAU GAMBAR
             if (item.classList.contains('video-item')) {
                 const videoId = item.getAttribute('data-video-id');
-                // Menggunakan nocookie + parameter autoplay & modestbranding
-                videoPlayer.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
                 
-                videoPlayer.style.display = 'block'; // Munculkan video
-                lightboxImg.style.display = 'none';   // Sembunyikan gambar
+                // Set link embed YouTube
+                videoPlayer.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+                
+                // Tampilkan Video, Sembunyikan Gambar
+                videoPlayer.style.display = 'block';
+                lightboxImg.style.display = 'none';
             } else {
-                // Jika gambar biasa
+                // Mode Gambar Biasa
                 lightboxImg.src = img.src;
-                lightboxImg.style.display = 'block'; // Munculkan gambar
-                videoPlayer.style.display = 'none';  // Sembunyikan video
-                videoPlayer.src = "";                // Kosongkan src video
+                lightboxImg.style.display = 'block';
+                videoPlayer.style.display = 'none';
+                videoPlayer.src = ""; // Matikan video
             }
         });
     });
 
-    // Fungsi Tutup (Universal)
-    const closeLightbox = () => {
+    // FUNGSI TUTUP
+    function closeLightbox() {
         lightbox.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Aktifkan scroll kembali
-        videoPlayer.src = ""; // PENTING: Matikan video & suara saat ditutup
-    };
+        document.body.style.overflow = 'auto';
+        videoPlayer.src = ""; // PENTING: Matikan suara video saat ditutup
+    }
 
-    closeBtn.addEventListener('click', closeLightbox);
+    closeBtn.onclick = closeLightbox;
 
-    // Klik di area hitam (luar konten) untuk menutup
-    lightbox.addEventListener('click', (e) => {
-        // Jika yang diklik adalah background (bukan gambar/video/caption)
-        if (e.target === lightbox || e.target.id === "caption") {
+    // Tutup jika klik area hitam di luar gambar/video
+    lightbox.onclick = function(e) {
+        if (e.target === lightbox) {
             closeLightbox();
         }
-    });
+    };
 </script>
+
 
 
 
@@ -158,13 +164,6 @@
           <p class="copyright">&copy; Yuyu 2026. All rights reserved.</p>
         </div>
     </footer>
-
-    <div id="lightbox" class="lightbox">
-    <span class="close">&times;</span>
-    <img class="lightbox-content" id="full-image" alt="Full Image">
-    <iframe id="video-player" class="lightbox-content" width="100%" height="auto" src="" frameborder="0" allowfullscreen style="display:none; border:none;"></iframe>
-    <p id="caption"></p>
-</div>
 
 </body>
 </html>
