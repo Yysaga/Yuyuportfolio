@@ -169,33 +169,32 @@
 .modal-carousel {
     display: flex;
     overflow-x: auto;
-    /* Memberi jarak antar gambar */
-    gap: 30px; 
-    /* Padding kiri-kanan penting agar gambar pertama/terakhir bisa di tengah */
-    padding: 0 10%; 
+    gap: 20px;           /* Jarak antar gambar */
+    padding: 0 50px;     /* Memberi ruang di kiri-kanan agar gambar berikutnya mengintip */
     width: 100%;
     scroll-snap-type: x mandatory;
+    scrollbar-width: none; 
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    /* Mengaktifkan kembali sentuhan hanya untuk area geser */
-    touch-action: pan-x; 
+    align-items: center;
+}
+
+.modal-carousel img {
+    /* KUNCI AGAR GAMBAR SELANJUTNYA KELIHATAN */
+    width: 75vw;         /* Kita perkecil dari 80vw ke 75vw agar ada sisa ruang untuk gambar sebelah */
+    max-width: 400px;    /* Batas maksimal agar tetap proporsional di iPad */
+    
+    height: auto;
+    max-height: 65vh;
+    object-fit: contain;
+    flex-shrink: 0;      
+    scroll-snap-align: center; 
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Tambahkan sedikit bayangan agar lebih elegan */
 }
 
 .modal-carousel::-webkit-scrollbar { display: none; }
 
-.modal-carousel img {
-    /* Ukuran Dinamik */
-    width: 80vw;         /* Di HP akan terlihat 80% layar */
-    max-width: 500px;    /* Di iPad tidak akan kebesaran */
-    height: auto;
-    max-height: 60vh;    /* Biar tidak 'balapan' sama tinggi layar HP */
-    
-    object-fit: contain;
-    flex-shrink: 0;      /* WAJIB: Biar gambar gak gepeng/ciut */
-    scroll-snap-align: center;
-    border-radius: 12px;
-    background: #fff;    /* Opsional: Biar testi lebih jelas terbaca */
-}
 
 /* Tombol Tutup di HP */
 .close-modal {
