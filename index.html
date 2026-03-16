@@ -106,12 +106,13 @@
             document.body.style.overflow = 'hidden';
 
             if (item.classList.contains('video-item')) {
-                // Jika Video
-                const videoId = item.getAttribute('data-video-id');
-                videoPlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-                videoPlayer.style.display = 'block';
-                lightboxImg.style.display = 'none';
-            } else {
+            const videoId = item.getAttribute('data-video-id');
+            // Pastikan formatnya persis seperti di bawah ini:
+            videoPlayer.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
+            videoPlayer.style.display = 'block';
+            lightboxImg.style.display = 'none';
+            }
+            else {
                 // Jika Gambar Biasa
                 lightboxImg.src = img.src;
                 lightboxImg.style.display = 'block';
