@@ -296,18 +296,33 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
     transform: scale(1.03);
 }
 
+/* --- PENGATURAN TEKS DESKRIPSI (WORK DI SEMUA DEVICE) --- */
+
 .filter-desc-container {
     text-align: center;
-    max-width: 800px;
-    margin: 20px auto 40px; /* Jarak atas 20px, bawah 40px */
-    padding: 0 20px;
+    max-width: 800px; /* Batas lebar agar teks tidak terlalu panjang ke samping di iPad */
+    margin: 30px auto 50px auto; 
+    padding: 0 30px; /* Tambah padding agar tidak nempel ke pinggir layar iPad */
+    display: none; /* Default sembunyi, muncul via JS */
 }
 
 .filter-desc-container p {
-    font-size: 0.9rem;
-    color: #666;
-    line-height: 1.6;
-    font-style: italic; /* Agar terlihat seperti penjelasan profesional */
+    font-size: 1rem;           /* Ukuran standar yang pas untuk iPad */
+    color: #444;               /* Warna abu gelap yang bersih */
+    line-height: 1.8;          /* Jarak antar baris agar nyaman dibaca */
+    font-weight: 300;          /* Gaya minimalis */
+    letter-spacing: 0.5px;
+    font-style: italic;        /* Memberi kesan profesional */
+    font-family: inherit;      /* Memastikan font sama dengan nav/header */
 }
 
-
+/* Khusus untuk tampilan Handphone (Layar Kecil) */
+@media (max-width: 600px) {
+    .filter-desc-container p {
+        font-size: 0.85rem;    /* Sedikit lebih kecil di HP agar pas */
+        line-height: 1.6;
+    }
+    .filter-desc-container {
+        margin: 20px auto 30px auto;
+    }
+}
