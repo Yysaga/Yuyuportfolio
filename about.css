@@ -207,3 +207,23 @@
     cursor: pointer;
     z-index: 10001;
 }
+
+.modal {
+    /* ... kode lainnya tetap ... */
+    cursor: zoom-out; /* Memberi tanda visual bisa diklik untuk keluar */
+}
+
+.modal-carousel img {
+    /* ... kode lainnya tetap ... */
+    cursor: default; /* Saat di atas gambar, kursor kembali normal agar tidak bingung */
+}
+
+/* Opsional: Sembunyikan tombol X jika kamu ingin benar-benar bersih */
+.close-modal {
+    opacity: 0.5; /* Buat agak samar agar tidak mengganggu karya */
+    transition: 0.3s;
+}
+.close-modal:hover {
+    opacity: 1;
+}
+
