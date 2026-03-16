@@ -162,47 +162,47 @@ nav { padding: 40px 5%; display: flex; justify-content: space-between; align-ite
     cursor: pointer; /* Memberi tanda kalau area hitam ini bisa diklik */
 }
 
-/* 1. ATURAN UMUM UNTUK GAMBAR DI LIGHTBOX */
+/* 1. ATURAN GAMBAR & VIDEO (MENTOK TAPI SISAKAN SEDIKIT) */
 .lightbox-content {
-    /* Gunakan 92% lebar layar agar hampir penuh tapi tidak mentok tembok */
-    width: 92vw; 
-    max-width: 1000px; /* Batas maksimal di layar besar/desktop */
+    /* Gunakan 96% agar hampir menyentuh pinggiran HP */
+    width: 96vw; 
+    max-width: 100%; /* Hilangkan batasan di layar besar agar bebas membesar */
     
-    /* Otomatis tinggi mengikuti proporsi gambar */
-    height: auto;
-    max-height: 85vh; /* Jangan sampai melebihi tinggi layar agar caption tetap kelihatan */
+    /* Tinggi maksimal agar tidak menabrak atas/bawah */
+    max-height: 85vh; 
+    
+    /* HAPUS BORDER & RADIUS */
+    border: none !important;
+    border-radius: 0 !important; 
     
     object-fit: contain;
     display: none;
-    border-radius: 8px; /* Sedikit tumpul agar elegan */
-    box-shadow: 0 0 30px rgba(0,0,0,0.5);
-    transition: transform 0.3s ease;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5); /* Bayangan tipis saja agar terlihat timbul */
 }
 
-/* 2. KHUSUS UNTUK VIDEO PLAYER */
+/* 2. KHUSUS VIDEO PLAYER */
 #video-player {
-    width: 92vw;
-    max-width: 800px;
-    aspect-ratio: 16 / 9; /* Standar YouTube */
-    border: none;
+    width: 96vw;
+    aspect-ratio: 16 / 9;
+    border: none !important;
+    border-radius: 0 !important;
     display: none;
 }
 
-/* 3. KHUSUS UNTUK GAMBAR FULL */
+/* 3. KHUSUS GAMBAR FULL */
 #full-image {
-    /* Sama dengan lightbox-content tapi kita pertegas */
-    width: 92vw;
-    max-height: 80vh;
+    width: 96vw;
+    max-height: 88vh; /* Sedikit lebih tinggi untuk gambar vertikal */
 }
 
-/* 4. ATURAN UNTUK CAPTION (TEKS DI BAWAH) */
+/* 4. PENYESUAIAN CAPTION */
 #caption {
-    width: 90%;
+    width: 96%;
     text-align: center;
-    color: #ccc;
-    font-size: 14px;
-    margin-top: 15px;
-    font-family: sans-serif;
+    color: #ffffff; /* Putihkan sedikit agar kontras di layar hitam */
+    font-size: 13px;
+    margin-top: 10px;
+    letter-spacing: 0.5px;
 }
 
 
